@@ -1,0 +1,22 @@
+.wrapper{
+  .main-image{
+    background:url("/assets/main.jpg") center no-repeat;
+    height: 300px;
+    background-size: cover;
+    &__text{
+      color: #FFFFFF;
+    }
+  }
+
+  .article-box{
+    background:url("/assets/publicdomainq-0015394kfs.jpg") center no-repeat;
+    height: 250px;
+    &__title{
+      color: #FFFFFF;
+    }
+    &__text{
+      color:lightgray;
+      font-size:8px;
+    }
+  }
+}
