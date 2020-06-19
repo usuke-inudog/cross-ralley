@@ -1,0 +1,37 @@
+= render "topics/header"
+.wrapper__artcles
+  .search-box
+    = form_with method: :get, local: true do |f|
+      = f.text_field :name, class:"search-box__input",placeholder:"どの記事をお探しですか？"
+      = f.submit "検索",class:"search-box__submit-btn"
+  .container.artcle-contents
+    .new-artcles-box
+      %h3 最新記事
+      .new-artcle.col-md-7
+        .new-artcle__title 
+          %h4 効率的なポイントの取り方
+        .new-artcle__user usuke
+        .new-artcle__img
+        .new-artcle__text エースを取る球威がない一般プレイヤーである自分が効率的にポイントを取るためには、コントロールを重視し、相手のバックハンドに玉を集める
+      .new-artcle.col-md-7
+        .new-artcle__title 
+          %h4 効率的なポイントの取り方
+        .new-artcle__user usuke
+        .new-artcle__img
+        .new-artcle__text エースを取る球威がない一般プレイヤーである自分が効率的にポイントを取るためには、コントロールを重視し、相手のバックハンドに玉を集める
+      .new-artcle.col-md-7
+        .new-artcle__title 
+          %h4 効率的なポイントの取り方
+        .new-artcle__user usuke
+        .new-artcle__img
+        .new-artcle__text エースを取る球威がない一般プレイヤーである自分が効率的にポイントを取るためには、コントロールを重視し、相手のバックハンドに玉を集める
+      .new-artcle.col-md-7
+        .new-artcle__title 
+          %h4 効率的なポイントの取り方
+        .new-artcle__user usuke
+        .new-artcle__img
+        .new-artcle__text エースを取る球威がない一般プレイヤーである自分が効率的にポイントを取るためには、コントロールを重視し、相手のバックハンドに玉を集める
+    .popular-artcles-box
+      %h3 人気記事
+  .paginations
+    1 2 3 次へ

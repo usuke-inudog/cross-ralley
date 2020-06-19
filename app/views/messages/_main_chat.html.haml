@@ -1,0 +1,79 @@
+.main-chat
+  .chat-info
+    .info-contents
+      .info-contents__group-name
+        フェデラー教
+      .info-contents__group-users
+        Member : usuke test_taro
+    .edit-btn
+      =link_to "#" do
+        グループ編集
+  .chat-messages
+    .message-box
+      .posting-img
+        画像
+      .posting-contents
+        .posting-contents__user-img
+        .posting-contents__container
+          .posting-contents__container--user-name
+            usuke
+          .posting-contents__container--text
+            フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神
+          .posting-contents__container--created-at
+            2020年6月19日 14時30分
+    .message-box
+      .posting-img
+        画像
+      .posting-contents
+        .posting-contents__user-img
+        .posting-contents__container
+          .posting-contents__container--user-name
+            usuke
+          .posting-contents__container--text
+            フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神
+          .posting-contents__container--created-at
+            2020年6月19日 14時30分
+    .message-box
+      .posting-img
+        画像
+      .posting-contents
+        .posting-contents__user-img
+        .posting-contents__container
+          .posting-contents__container--user-name
+            usuke
+          .posting-contents__container--text
+            フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神
+          .posting-contents__container--created-at
+            2020年6月19日 14時30分
+    .message-box
+      .posting-img
+        画像
+      .posting-contents
+        .posting-contents__user-img
+        .posting-contents__container
+          .posting-contents__container--user-name
+            usuke
+          .posting-contents__container--text
+            フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神
+          .posting-contents__container--created-at
+            2020年6月19日 14時30分
+    .message-box
+      .posting-img
+        画像
+      .posting-contents
+        .posting-contents__user-img
+        .posting-contents__container
+          .posting-contents__container--user-name
+            usuke
+          .posting-contents__container--text
+            フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神
+          .posting-contents__container--created-at
+            2020年6月19日 14時30分
+  .chat-form
+    = form_with html: {class:"new-message"}, local: true do |f|
+      .input-box
+        = f.text_field :content, class:"input-box__text", placeholder:"フェデラー教へのメッセージ"
+        = f.label :image, class:"input-box__img" do
+          = icon('far', 'image', class: "input-box__icon")
+          = f.file_field :image,class:"input-box__img--file"
+      =f.submit "Send", class:"submit-btn"

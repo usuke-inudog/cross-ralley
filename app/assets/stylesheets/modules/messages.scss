@@ -1,0 +1,177 @@
+.wrapper__messages{
+  height: calc(100vh - 65px);
+  width: 100vw;
+  display: flex;
+  .side-bar{
+    width: 250px;
+    height: 100%;
+    background-color: #2f3e51;
+    .group-search{
+      width: 100%;
+      height: 50px;
+      background-color: #253141;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: white;
+      &__btn{
+        position: absolute;
+        right: 10px;
+        font-size: 20px;
+        a{
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
+    .group-box{
+      height: calc(100% - 50px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: auto;
+      .group-list{
+        width: 250px;
+        height: 80px;
+        color: whitesmoke;
+        margin: 10px 0px;
+        padding: 5px 5px;
+        &__group-name{
+          height: 25px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          font-size: 20px;
+        }
+        &__new-message{
+          height: 45px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+  .main-chat{
+    width: calc(100% - 250px);
+    height: 100%;
+    .chat-info{
+      width: 100%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .info-contents{
+        margin-left: 20px;
+        &__group-name{
+          font-size: 20px;
+        }
+        &__group-users{
+          font-size: 12px;
+          color: #999999;
+        }
+      }
+      .edit-btn{
+        width: 100px;
+        height: 25px;
+        margin-right: 35px;
+        text-align: center;
+        background-color:lightblue;
+        border-radius: 5px;
+        a{
+          text-decoration: none;
+          color: rgb(30, 28, 28);
+        }
+      }
+    }
+    .chat-messages{
+      width: 100%;
+      height: calc(100% - 130px);
+      border-top: 1px solid rgb(215, 210, 210);
+      border-bottom: 1px solid rgb(215, 210, 210);
+      padding: 20px 20px 0px 20px;
+      overflow: auto;
+      background-color: rgb(53, 93, 106);
+      .message-box{
+        border:1px solid white;
+        border-radius: 5px;
+        padding: 5px 5px;
+        margin-bottom: 15px;
+        .posting-img{
+        }
+        .posting-contents{
+          display: flex;
+          align-items: center;
+          &__user-img{
+            height: 80px;
+            width: 80px;
+            margin-right: 10px;
+            border-radius: 50%;
+            background: url("/assets/かよちん.jpg")center no-repeat;
+            background-size: cover;
+          }
+          &__container{
+            display: flex;
+            flex-direction: column;
+            color: rgb(216, 213, 213);
+            &--user-name{
+              font-size: 20px;
+            }
+            &--text{
+              font-size: 14px;
+            }
+            &--created-at{
+              font-size: 8px;
+            }
+          }
+        }
+      }
+    }
+
+    .chat-form{
+      height: 80px;
+      background-color: #dddddd;
+      box-sizing: border-box;
+      padding: 20px 50px 20px 40px;
+      form{
+        display: flex;
+        justify-content: space-between;
+        .input-box{
+          display: flex;
+          position: relative;
+          width: 100%;
+          &__text{
+            height: 50px;
+            width: 100%;
+            color: #434a54;
+            border-style: none;
+            padding: 0 45px 0 15px;
+          }
+          &__img{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            &--file{
+              display: none;
+            }
+          }
+          .fa-image{
+            font-size: 25px;
+          }
+        }
+        .submit-btn{
+          width: 100px;
+          height: 50px;
+          padding: 0 30px;
+          margin-left: 15px;
+          background-color: #38aef0;
+          color: #FFFFFF;
+          cursor: pointer;
+          border: none;
+        }
+      }
+    }
+  }
+}
