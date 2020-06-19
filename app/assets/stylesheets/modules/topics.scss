@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper__toppage{
   .main-image{
     background:url("/assets/main.jpg") center no-repeat;
     height: 300px;
@@ -11,7 +11,10 @@
   .article-box{
     background:url("/assets/publicdomainq-0015394kfs.jpg") center no-repeat;
     height: 250px;
+    display: flex;
+    align-items: flex-end;
     &__title{
+      writing-mode: vertical-rl;
       color: #FFFFFF;
     }
     &__text{

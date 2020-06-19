@@ -1,15 +1,34 @@
+%html{:lang => "ja"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %title ページタイトル
+    / CSS
+    %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", :rel => "stylesheet"}/
+    / JS
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
+    %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"}
+
 .header
   .header__box
-    .logo 
-      %span.logo--red C
-      %p ross×
-      %span.logo--red R
-      %p alley
+    .logo
+      =link_to "/" do
+        .logo__img
     .login-btns
       %a.btn.btn-primary.gtn-lg{href: "#", role:"button"} ログイン
       %a.btn.btn-primary.gtn-lg{href: "#", role:"button"} 新規登録 »
   %ul.contents
-    %li.__link-btn 試合/練習
-    %li.__link-btn トレーニング記事
-    %li.__link-btn 近くのコート/ショップ
-    %li.__link-btn ランキング
+    %li.contents__link-btn
+      =link_to "/messages" do
+        試合/練習
+    %li.contents__link-btn
+      =link_to "/artcles" do
+        トレーニング記事
+    %li.contents__link-btn 
+      =link_to "#" do
+        近くのコート/ショップ
+    %li.contents__link-btn
+      =link_to "#" do
+        ランキング

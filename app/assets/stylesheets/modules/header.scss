@@ -1,35 +1,40 @@
 .header {
   height: 65px;
+  border-bottom: 1px rgb(215, 210, 210) solid;
   &__box{
+    height: 40px;
     display:flex;
     flex-direction: row;
     justify-content:space-between;
-    margin: 10px 10px 10px 10px;
-    .logo{
+    margin: 0px 10px 0px 10px;
+    .logo__img{
       margin: 0px 10px;
-      font-size: 14px;
       display: flex;
-      &--red{
-        color: red;
-        font-size: 18px;
-      }
+      height: 40px;
+      width: 100px;
+      background:url("/assets/logo.png") center no-repeat;
+      background-size: contain;
     }
     .login-btns {
       .btn {
         height: 25px;
         width: 70px;
-        margin: 0px 10px;
+        margin: 5px 10px;
         font-size: 8px;
       }
     }
   }
   .contents{
+    height: 25px;
     list-style:none;
     display:flex;
     align-items: bottom;
     justify-content: space-around;
-    .contents__link-btn{
-      border:1px solid gray;
+    &__link-btn{
+      a{
+        text-decoration: none;
+        color: black;
+      }
     }
   }
 }
