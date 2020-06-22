@@ -16,9 +16,13 @@
     .logo
       =link_to "/" do
         .logo__img
-    .login-btns
-      %a.btn.btn-primary.gtn-lg{href: "#", role:"button"} ログイン
-      %a.btn.btn-primary.gtn-lg{href: "#", role:"button"} 新規登録 »
+    - if user_signed_in?
+      .mypage-btn
+        %a.btn.btn-primary.gtn-lg{href: "/users/edit", role:"button"} マイページへ
+    - else
+      .login-btns
+        %a.btn.btn-primary.gtn-lg{href: "/users/sign_in", role:"button"} ログイン
+        %a.btn.btn-primary.gtn-lg{href: "/users/sign_up", role:"button"} 新規登録 »
   %ul.contents
     %li.contents__link-btn
       =link_to "/messages" do
