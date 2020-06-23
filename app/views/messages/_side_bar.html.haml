@@ -3,27 +3,13 @@
     .group-search__text
       グループ一覧
     .group-search__btn
-      =link_to "#" do
+      =link_to "groups/new" do
         ＋
   .group-box
-    .group-list
-      .group-list__group-name フェデラー教
-      .group-list__new-message フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神
-    .group-list
-      .group-list__group-name フェデラー教
-      .group-list__new-message フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神
-    .group-list
-      .group-list__group-name フェデラー教
-      .group-list__new-message フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神
-    .group-list
-      .group-list__group-name フェデラー教
-      .group-list__new-message フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは
-    .group-list
-      .group-list__group-name フェデラー教
-      .group-list__new-message フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神
-    .group-list
-      .group-list__group-name フェデラー教
-      .group-list__new-message フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神
-    .group-list
-      .group-list__group-name フェデラー教
-      .group-list__new-message フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神フェデラーは神
+    - current_user.groups.each do |group|
+      .group-list
+        = link_to "#" do
+          .group-list__group-name
+            = group.group_name
+          .group-list__new-message
+            メッセージはまだありません
