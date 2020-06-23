@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :artcles, only: [:index]
   resources :users, only: [:show]
   resources :groups, only: [:index,:new, :create,:edit, :update] do
-    resources :messages, only[:index, :create]
+    resources :messages, only:[:index, :create]
   end
 end
