@@ -1,0 +1,12 @@
+.message-box
+  .posting-img
+    = image_tag message.image.url if message.image.present?
+  .posting-contents
+    .posting-contents__user-img
+    .posting-contents__container
+      .posting-contents__container--user-name
+        = message.user.nickname
+      .posting-contents__container--text
+        = message.text
+      .posting-contents__container--created-at
+        = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
