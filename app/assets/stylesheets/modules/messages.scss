@@ -34,9 +34,12 @@
       .group-list{
         width: 250px;
         height: 80px;
-        color: whitesmoke;
         margin: 10px 0px;
-        padding: 5px 5px;
+        padding: 5px 10px;
+        a{
+          color: whitesmoke;
+          text-decoration: none;
+        }
         &__group-name{
           height: 25px;
           text-overflow: ellipsis;
