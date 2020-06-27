@@ -1,0 +1,7 @@
+= render "topics/header"
+.artcle-search__wrapper
+  = render "search-box"
+  .container.artcle-contents
+    %h2 検索結果
+    - @artcles.each do |artcle|
+      = render "artcle", { artcle: artcle}

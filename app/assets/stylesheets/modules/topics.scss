@@ -1,21 +1,29 @@
 .wrapper__toppage{
   .main-image{
-    background:url("/assets/main.jpg") center no-repeat;
+    background:url("/assets/main.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
     height: 300px;
     background-size: cover;
     &__text{
       color: #FFFFFF;
+      text-align: left;
     }
   }
 
   .article-box{
-    background:url("/assets/publicdomainq-0015394kfs.jpg") center no-repeat;
     height: 250px;
     display: flex;
     align-items: flex-end;
+    background-repeat: no-repeat;
+    background-size: cover;
     &__title{
       writing-mode: vertical-rl;
+      font-size: 24px;
+      &__str{
+      text-decoration: none;
       color: #FFFFFF;
+      }
     }
     &__text{
       color:lightgray;

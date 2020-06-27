@@ -1,0 +1,4 @@
+.search-box
+  = form_with url: search_artcles_path, method: :get, local: true do |f|
+    = f.text_field :keyword, class:"search-box__input",placeholder:"どの記事をお探しですか？"
+    = f.submit "検索",class:"search-box__submit-btn"

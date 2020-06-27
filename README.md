@@ -90,9 +90,10 @@ Things you may want to cover:
 - has_many :messages_stamps
 - has_many :message, through: :messages_stamps
 
-## traningartcles
+## artcles
 |Column|Type|Options|
 |------|----|-------|
+|title|text||
 |text|text||
 |image|text||
 |video|text||
