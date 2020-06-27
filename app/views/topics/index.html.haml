@@ -1,41 +1,17 @@
-!!!
-%html{:lang => "ja"}
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
-    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-    %title ページタイトル
-    / CSS
-    %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", :rel => "stylesheet"}/
-    / JS
-    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
-    %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"}
-  %body
-    / ヘッダー
-    = render "header"
-    / トップページ全体
-    .wrapper__toppage
-      / メイン画像
-      .jumbotron.main-image
-        .container
-          %h1.main-image__text Let's Play Tennis!!
-      / 3カラム
-      .articles
-        %h3.text-center.article-topic 最新トレーニング記事
-        .container
-          .row.o-4column
-            .col-md-3.article-box
-              %h2.article-box__title 効率的なポイントの取り方
-              %p.article-box__text エースを取る球威がない一般プレイヤーである自分が効率的にポイントを取るためには、コントロールを重視し、相手のバックハンドに玉を集める
-            .col-md-3.article-box
-              %h2.article-box__title ウィルソン 2020 プロスタッフ 97L の使用感
-              %p.article-box__text 最新のフェデラー使用モデルであるプロスタッフ97Lの使用感。重量は290gとプロ使用モデルとしては少し軽めで、扱いやすかった。
-            .col-md-3.article-box
-              %h2.article-box__title テニスプレイヤー必読の筋トレ
-              %p.article-box__text テニスは「足ニス」と言われたり、ストロークは体幹で打つと言われている昨今、体幹や下半身のトレーニングは全テニスプレイヤーの課題である。
-            .col-md-3.article-box
-              %h2.article-box__title 昨日テニスはじめました
-              %p.article-box__text 昨日からテニスを始めた初心者です！ボールが前に飛びません！！
-      / フッター（多分消す）
-      %p.text-center フッター
+/ ヘッダー
+= render "header"
+/ トップページ全体
+.wrapper__toppage
+  / メイン画像
+  .jumbotron.main-image
+    .container
+      %h1.main-image__text Let's Play Tennis!!
+  / 3カラム
+  .articles
+    %h3.text-center.article-topic 最新トレーニング記事
+    .container
+      .row.o-4column
+        - @artcles.first(4).each do |artcle|
+          = render "artcles", { artcle: artcle}
+  / フッター（多分消す）
+  %p.text-center フッター

@@ -1,0 +1,36 @@
+= render "topics/header"
+
+.artcle-routes
+  .artcle-routes__contents
+    .artcle-routes__contents__icon
+      = icon('fa','home')
+    .artcle-routes__contents__home
+      = link_to "/" do
+        Cross×Ralley
+    >
+    .artcle-routes__contents__artcle-index
+      = link_to "/artcles" do
+        トレーニング記事
+    >
+    .artcle-routes__contents__artcle
+      = link_to artcle_path(@artcle.id) do
+        = @artcle.title
+.artcle-edit__wrapper
+  .edit-container
+    .edit-form
+      =form_with model: @artcle, local: true do |f|
+        %ul
+          %li
+            = f.label "タイトルを編集する"
+          %li
+            = f.text_field :title, class:"edit-form__title", placeholoder: @artcle.title
+          %li
+            = f.label  "本文を編集する"
+          %li
+            = f.text_area :text, class:"edit-form__text", placeholoder: @artcle.text
+          %li
+            = f.label  "画像を変更する"
+          %li
+            = f.file_field :image, class:"edit-form__image"
+          %li
+            = f.submit "SEND", class:"edit-form__submit-btn"

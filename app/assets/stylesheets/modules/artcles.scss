@@ -1,18 +1,10 @@
-.wrapper__artcles{
-  display: flex;
-  // background-color: rgb(232, 233, 235);
-  background: url("/assets/hyokkori.jpeg");
-  background-size: contain;
-  flex-direction: column;
-  align-items: center;
-  .search-box{
-    width: 500px;
+@mixin search-box(){
+  width: 500px;
     height: 100px;
     margin: 10px 0px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px lightgreen solid;
     &__input{
       height: 40px;
       width: 250px;
@@ -22,6 +14,24 @@
       height: 40px;
       width: 80px;
     }
+  }
+
+.artcles-index__wrapper{
+  display: flex;
+  background: url("/assets/hyokkori.jpeg");
+  background-size: contain;
+  flex-direction: column;
+  align-items: center;
+  
+  .posting-box{
+    font-size: 20px;
+    margin: 20px 0;
+    padding: 10px 10px;
+    border: 2px solid lightblue;
+  }
+
+  .search-box{
+    @include search-box
   }
   
   .artcle-contents{
@@ -37,8 +47,8 @@
         margin: 10px 5px 10px;
         &__img{
           height: 300px;
-          background:url("/assets/publicdomainq-0015394kfs.jpg") center no-repeat;
-          background-size: contain;
+          width: auto;
+          max-width: 100%;
         }
       }
     }
@@ -50,5 +60,188 @@
   .paginations{
     margin: 10px 0px;
     color: blue;
+  }
+}
+
+.artcle-new__wrapper{
+  height: calc(100vh - 65px);
+  width: 100vw;
+  &--headline{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 24px;
+    color: black;
+  }
+  .post-artcle-box{
+    .artcle-form{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+      &__nickname{
+        width: 250px;
+      }
+      &__image{
+        width: 250px;
+      }
+      &__title{
+        width: 250px;
+      }
+      &__text{
+        width: 250px;
+      }
+    }
+  }
+}
+
+.artcle-search__wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  .search-box{
+    @include search-box
+  }
+}
+
+.artcle-show__wrapper{
+  height: calc(100vh - 65px);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .artcle-container{
+    background-color: rgb(230, 230, 230);
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    .content-post{
+      width: 90%;
+      padding-top: 15px;
+      &__user-box{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin: 0 20px;
+        &__name{
+          font-size: 18px;
+        }
+        &__created_at{
+          font-size: 12px;
+          color:rgb(126, 126, 126);
+        }
+      }
+      &__img-box{
+        border: 5px ridge white;
+        &__image{
+          width: 100%;
+          height: auto;
+        }
+      }
+      &__text-box{
+        width: 100%;
+      }
+    }
+    .btn-container{
+      display: flex;
+      margin-left: auto;
+      &__edit-btn{
+
+      }
+      &__destroy-btn{
+        margin: 0px 30px;
+      }
+    }
+  }
+  .comment-container{
+    width: 70%;
+    margin: 20px 0;
+    .comment-form{
+      display: flex;
+      justify-content: center;
+      &__input{
+        width: 300px;
+        height: 100px;
+      }
+      &__submit{
+        float: right;
+        width: 90px;
+        height: 30px;
+      }
+    }
+    .comments{
+      width: 100%;
+      .comment-box{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        border: 3px double gray;
+        background-color: rgb(183, 255, 183);
+        font-size: 16px;
+        padding: 0 5px;
+        &__user-name{
+          margin-right: 5px;
+        }
+        &__comment{
+          margin-left: 5px;
+        }
+      }
+      .comment-created_at{
+        font-size: 8px;
+        padding-left: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.artcle-edit__wrapper{
+  width: 100%;
+  .edit-form{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    &__title{
+      width: 300px;
+      height: 30px;
+      margin-bottom: 15px;
+    }
+    &__text{
+      width: 300px;
+      height: 100px;
+      margin-bottom: 15px;
+    }
+    &__image{
+      margin-bottom: 15px;
+    }
+    &__submit-btn{
+      width: 60px;
+      height: 30px;
+      float: right;
+    }
+  }
+}
+.artcle-routes{
+  width: 100%;
+  margin: 15px 0 0 20px;
+  padding-left: 20px;
+  &__contents{
+    display: flex;
+    a{
+      text-decoration: none;
+      color: black;
+    }
+    &__home{
+      margin: 0 15px;
+    }
+    &__artcle-index{
+      margin: 0 15px;
+    }
+    &__artcle{
+      margin: 0 15px;
+    }
   }
 }

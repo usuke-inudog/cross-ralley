@@ -1,0 +1,55 @@
+= render "topics/header"
+.artcle-show__wrapper
+  .artcle-routes
+    .artcle-routes__contents
+      .artcle-routes__contents__icon
+        = icon('fa','home')
+      .artcle-routes__contents__home
+        = link_to "/" do
+          Cross×Ralley
+      >
+      .artcle-routes__contents__artcle-index
+        = link_to "/artcles" do
+          トレーニング記事
+  .artcle-container
+    .content-post
+      .content-post__title
+        %h1= @artcle.title
+      .content-post__user-box
+        .content-post__user-box__name
+          = @artcle.user.nickname
+        .content-post__user-box__created_at
+          = @artcle.created_at.strftime("%Y年%m月%d日 %H時%M分")
+      .content-post__img-box
+        - if @artcle.image?
+          = image_tag "#{@artcle.image}", class:"content-post__img-box__image"
+        - else
+          = image_tag "/assets/publicdomainq-0015394kfs.jpg", class:"content-post__img-box__image"
+      .content-post__text-box
+        = @artcle.text
+    .btn-container
+      -if current_user.id == @artcle.user.id
+        = link_to edit_artcle_path(@artcle.id),class:"btn-container__edit-btn" do
+          編集する
+        = link_to artcle_path(@artcle.id), class:"btn-container__destroy-btn", method: :delete do
+          削除する
+  .comment-container
+    .comments
+      %h1 コメント
+      - if @comments
+        - @comments.each do |comment|
+          .comment-box
+            .comment-box__user-name
+              = comment.user.nickname
+            %a :
+            .comment-box__comment
+              = comment.comment
+          .comment-created_at
+            = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+    .comment-form
+      = form_with model:[@artcle, @comment], local: true do |f|
+        %ul
+          %li
+            = f.text_area :comment, class:"comment-form__input", placeholder:"コメントを入力してください"
+          %li
+            = f.submit "SEND", class:"comment-form__submit"
