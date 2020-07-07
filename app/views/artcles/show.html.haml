@@ -27,6 +27,7 @@
           = image_tag "/assets/publicdomainq-0015394kfs.jpg", class:"content-post__img-box__image"
       .content-post__text-box
         = @artcle.text
+      = render partial: "likes/like", locals: { artcle: @artcle }
     .btn-container
       -if current_user.id == @artcle.user.id
         = link_to edit_artcle_path(@artcle.id),class:"btn-container__edit-btn" do

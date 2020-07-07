@@ -10,5 +10,8 @@
     = image_tag "/assets/publicdomainq-0015394kfs.jpg", class:"new-artcle__img"
   .new-artcle__text
     = artcle.text
+  いいね：
+  = artcle.likes.length
   .new-artcle__created_at
     = artcle.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  

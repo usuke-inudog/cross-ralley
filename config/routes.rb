@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'topics#index'
   resources :topics, only: [:index]
   resources :messages, only: [:index]
+  resources :likes, only: [:create, :destroy]
   resources :artcles  do
     resources :comments, only:[:create]
     collection do 
