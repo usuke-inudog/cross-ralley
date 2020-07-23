@@ -11,7 +11,7 @@ class ArtclesController < ApplicationController
 
   def create
     Artcle.create(artcle_params)
-    redirect_to "/artcles"
+    redirect_to artcles_path
   end
 
   def show
@@ -29,7 +29,7 @@ class ArtclesController < ApplicationController
   def destroy
     artcle = Artcle.find(params[:id])
     artcle.destroy
-    redirect_to "/artcles"
+    redirect_to artcles_path
   end
 
   def update

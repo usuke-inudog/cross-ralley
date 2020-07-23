@@ -3,7 +3,7 @@
     .group-search__text
       グループ一覧
     .group-search__btn
-      =link_to "/groups/new" do
+      =link_to new_group_path do
         ＋
   .group-box
     - current_user.groups.each do |group|

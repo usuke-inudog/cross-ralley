@@ -1,4 +1,7 @@
-= render "topics/header"
+= render "layouts/header"
+- breadcrumb :artcles
+= render "layouts/breadcrumbs"
+
 .artcle-search__wrapper
   = render "search-box"
   .container.artcle-contents

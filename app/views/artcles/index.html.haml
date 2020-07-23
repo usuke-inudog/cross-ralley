@@ -1,7 +1,10 @@
-= render "topics/header"
+= render "layouts/header"
+- breadcrumb :artcles
+= render "layouts/breadcrumbs"
+
 .artcles-index__wrapper
   .posting-box
-    = link_to "artcles/new" do
+    = link_to new_artcle_path do
       投稿する
   = render "search-box"
   .container.artcle-contents

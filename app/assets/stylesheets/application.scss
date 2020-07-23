@@ -1,9 +1,9 @@
-@import "reset";
-@import "modules/header";
-@import "modules/topics";
-@import "modules/messages";
-@import "modules/artcles";
+@import "modules/layout/reset";
+@import "modules/layout/header";
+@import "modules/topics/topic";
+@import "modules/messages/message";
+@import "modules/artcles/artcle";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "modules/groups";
-@import "modules/group"
+@import "modules/groups/group";
+@import "modules/layout/breadcrumb";

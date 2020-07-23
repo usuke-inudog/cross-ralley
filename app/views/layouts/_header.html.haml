@@ -1,21 +1,22 @@
 .header
   .header__box
     .logo
-      =link_to "/" do
+      =link_to root_path do
         .logo__img
     - if user_signed_in?
       .mypage-btn
-        %a.btn.btn-primary.gtn-lg{href: "/users/edit", role:"button"} マイページへ
+        =link_to user_path(current_user.id), class:"" do
+          マイページへ
     - else
       .login-btns
         %a.btn.btn-primary.gtn-lg{href: "/users/sign_in", role:"button"} ログイン
         %a.btn.btn-primary.gtn-lg{href: "/users/sign_up", role:"button"} 新規登録 »
   %ul.contents
     %li.contents__link-btn
-      =link_to "/groups" do
+      =link_to groups_path do
         試合/練習
     %li.contents__link-btn
-      =link_to "/artcles" do
+      =link_to artcles_path do
         トレーニング記事
     %li.contents__link-btn 
       =link_to "#" do
