@@ -1,14 +1,16 @@
 - if artcle.image?
-  .col-md-3.article-box{:style => "background-image: url(#{artcle.image});"}
-    %h2.article-box__title
-      = link_to artcle_path(artcle.id),class:"article-box__title__str" do
-        = artcle.title
-    %p.article-box__text
-      = artcle.text
+  = link_to artcle_path(artcle.id) do
+    .col-md-3.article-box{style: "background-image: url(#{artcle.image});"}
+      %h2.article-box__title
+        .article-box__title__str
+          = artcle.title
+      %p.article-box__text
+        = artcle.text
 - else
-  .col-md-3.article-box{:style => "background-image: url(/assets/publicdomainq-0015394kfs.jpg);"}
-    %h2.article-box__title
-      = link_to artcle_path(artcle.id),class:"article-box__title__str" do
-        = artcle.title
-    %p.article-box__text
-      = artcle.text
+  = link_to artcle_path(artcle.id) do
+    .col-md-3.article-box{style: "background-image: url(/assets/publicdomainq-0015394kfs.jpg);"}
+      %h2.article-box__title
+        .article-box__title__str
+          = artcle.title
+      %p.article-box__text
+        = artcle.text
