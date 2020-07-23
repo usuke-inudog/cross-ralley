@@ -1,0 +1,113 @@
+@mixin mypage-title{
+  text-align: center;
+  padding: 20px 0;
+  background-color: #eee;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+@mixin mypage-link-btn{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  padding: 0 20px;
+  background-color: #fff;
+  text-decoration: none;
+  color: #333;
+  .nav-arrow{
+    color: #3CCACE;
+  }
+}
+
+
+.mypage-body{
+  width: 100vw;
+  padding: 50px 70px;
+  display: flex;
+  .side-bar{
+    width: 300px;
+    margin-right: 50px;
+    .menu-box{
+      width: 100%;
+      height: 70px;
+      background-color: yellow;
+      border: 1px solid lightgray;
+      border-radius: 1px;
+    }
+    .menu{
+      display: flex;
+      flex-direction: column;
+      &__title{
+        @include mypage-title
+      }
+      &__info{
+        @include mypage-link-btn
+      }
+      &__post{
+        @include mypage-link-btn
+      }
+      &__artcles{
+        @include mypage-link-btn
+      }
+      &__inquiry{
+        @include mypage-link-btn
+      }
+    }
+    .setting{
+      display: flex;
+      flex-direction: column;
+      &__title{
+        @include mypage-title
+      }
+      &__profile{
+        @include mypage-link-btn
+      }
+      &__acount{
+        @include mypage-link-btn
+      }
+      &__log-out{
+        @include mypage-link-btn
+      }
+    }
+  }
+  .main-contents{
+    width: calc(100% - 300px);
+    .chart-container{
+      height: 500px;
+      background:url("/assets/レーダーチャート.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+    .acount-container{
+      height: 150px;
+      margin-bottom: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &__image{
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background:url("/assets/main.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        &--icon{
+          color: #fff;
+          font-size: 60px;
+        }
+        &--name{
+          font-size: 18px;
+          font-weight: bold;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
