@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.create(comment_params)
     respond_to do |format|
-      format.html { redirect_to "/artcles/#{comment.artcle.id}" }
+      format.html { redirect_to artcle_path(artcle.id) }
       format.json
     end
   end
