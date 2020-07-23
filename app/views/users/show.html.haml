@@ -40,7 +40,7 @@
           アカウント
         .nav-arrow
           = icon("fas", "chevron-right")
-      = link_to "#", class:"setting__log-out menu-box" do
+      = link_to destroy_user_session_path, method: :delete, class:"setting__log-out menu-box" do
         .setting__log-out--text
           ログアウト
         .nav-arrow

@@ -21,28 +21,31 @@
         = @artcle.text
       = render partial: "likes/like", locals: { artcle: @artcle }
     .btn-container
-      -if current_user.id == @artcle.user.id
+      - if user_signed_in? && current_user.id == @artcle.user.id
         = link_to edit_artcle_path(@artcle.id),class:"btn-container__edit-btn" do
           編集する
         = link_to artcle_path(@artcle.id), class:"btn-container__destroy-btn", method: :delete do
           削除する
   .comment-container
-    .comments
-      %h1 コメント
-      - if @comments
-        - @comments.each do |comment|
-          .comment-box
-            .comment-box__user-name
-              = comment.user.nickname
-            %a :
-            .comment-box__comment
-              = comment.comment
-          .comment-created_at
-            = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
-    .comment-form
-      = form_with model:[@artcle, @comment], local: true, id: "new_comment" do |f|
-        %ul
-          %li
-            = f.text_area :comment, class:"comment-form__input", placeholder:"コメントを入力してください", class:"textbox"
-          %li
-            = f.submit "SEND", class:"comment-form__submit"
+    - if user_signed_in?
+      .comments
+        %h1 コメント
+        - if @comments
+          - @comments.each do |comment|
+            .comment-box
+              .comment-box__user-name
+                = comment.user.nickname
+              %a :
+              .comment-box__comment
+                = comment.comment
+            .comment-created_at
+              = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+      .comment-form
+        = form_with model:[@artcle, @comment], local: true, id: "new_comment" do |f|
+          %ul
+            %li
+              = f.text_area :comment, class:"comment-form__input", placeholder:"コメントを入力してください", class:"textbox"
+            %li
+              = f.submit "SEND", class:"comment-form__submit"
+    - else
+      ※※※※コメント機能を利用するためにはログインが必要です※※※※

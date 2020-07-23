@@ -1,4 +1,4 @@
-- if current_user.already_liked?(artcle)
+- if user_signed_in? && current_user.already_liked?(artcle)
   = link_to "/artcles/#{artcle.id}/likes", method: :detele, remote: true do
     ★
 - else
