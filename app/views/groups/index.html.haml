@@ -1,3 +1,7 @@
 = render "layouts/header"
 .wrapper__messages
   = render "messages/side_bar"
+  - if current_user == nil
+    .chat-page-error
+      ※※※※チャットの利用はログインが必要です※※※※
+
