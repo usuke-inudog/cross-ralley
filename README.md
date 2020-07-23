@@ -32,6 +32,7 @@ Things you may want to cover:
 |password|string|null: false|
 ### Association
 - belongs_to :usersstatus
+- belongs_to :profile
 - has_many :stamps
 - has_many :users_groups
 - has_many :groups, through: :users_groups
@@ -39,14 +40,20 @@ Things you may want to cover:
 - has_many :comments
 - has_many :likes
 
-## userstatusesテーブル
+## profilesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|rate|integer|null: false|
 |user_image|text||
 |user_age|integer||
 |user_sex|string||
 |user_introduction|text||
+### Association
+- belongs_to :user
+
+## userstatusesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|rate|integer|null: false|
 |footwork|integer||
 |stamina|integer||
 |service|integer||
