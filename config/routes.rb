@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:show]
+  resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
   resources :groups, only: [:index,:new, :create,:edit, :update] do
     resources :messages, only:[:index, :create]
   end

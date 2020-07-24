@@ -43,10 +43,11 @@ Things you may want to cover:
 ## profilesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_image|text||
-|user_age|integer||
-|user_sex|string||
-|user_introduction|text||
+|image|text||
+|age|string|null: false|
+|gender|string|null: false|
+|introduction|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 

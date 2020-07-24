@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many  :artcles
   has_many  :comments
   has_many  :likes
+  has_one   :profile
 
   def already_liked?(artcle)
     self.likes.exists?(artcle_id: artcle.id)

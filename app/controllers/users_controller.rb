@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show]
+  before_action :set_profile, only: [:show]
+  
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
@@ -18,5 +20,13 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:nickname, :email)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def set_profile
+    @profile = Profile.find_by(user_id: current_user.id)
   end
 end
