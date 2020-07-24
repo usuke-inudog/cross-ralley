@@ -2,7 +2,11 @@
   .posting-img
     = image_tag message.image.url if message.image.present?
   .posting-contents
-    .posting-contents__user-img
+    - if current_user.profile.present? && current_user.profile.image?
+      = image_tag @profile.image.url,class:"posting-contents__user-img"
+    - else
+      .posting-contents__user-img
+        = icon("fas", "user-circle")
     .posting-contents__container
       .posting-contents__container--user-name
         = message.user.nickname

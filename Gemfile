@@ -61,3 +61,4 @@ gem 'mini_magick'
 gem 'kaminari'
 gem 'jquery-rails'
 gem "gretel"
+gem 'chart-js-rails'

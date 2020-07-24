@@ -103,8 +103,13 @@
           color: #fff;
           font-size: 60px;
         }
+        &--picture{
+          height: 100px;
+          width: 100px;
+          border-radius: 50%;
+        }
         &--name{
-          font-size: 18px;
+          font-size: 22px;
           font-weight: bold;
           color: #fff;
         }

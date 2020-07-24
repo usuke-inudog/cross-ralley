@@ -30,12 +30,12 @@
     .setting
       .setting__title.menu-box
         設定
-      = link_to "#", class:"setting__profile menu-box" do
+      = link_to new_profile_path, class:"setting__profile menu-box" do
         .setting__profile--text
           プロフィール
         .nav-arrow
           = icon("fas", "chevron-right")
-      = link_to "#", class:"setting__acount menu-box" do
+      = link_to edit_user_registration_path, method: :get , class:"setting__acount menu-box" do
         .setting__acount--text
           アカウント
         .nav-arrow
@@ -48,8 +48,11 @@
   .main-contents
     .acount-container
       .acount-container__image
-        .acount-container__image--icon
-          = icon("fas", "user-circle")
+        - if current_user.profile.present? && current_user.profile.image?
+          = image_tag @profile.image.url, class: "acount-container__image--picture"
+        - else
+          .acount-container__image--icon
+            = icon("fas", "user-circle")
         .acount-container__image--name
           = @user.nickname
     .chart-container

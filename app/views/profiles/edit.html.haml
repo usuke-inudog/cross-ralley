@@ -1,0 +1,33 @@
+.profile-wrapper
+  .profile-body
+    = link_to root_path do
+      = image_tag "/assets/logo.png",class:"profile-logo"
+    = form_with model: @profile, class:"profile-container", local: true do |f|
+      .profile-container__title
+        プロフィール編集
+      .profile-container__image
+        - if @profile.image?
+          = image_tag @profile.image.url, class:"profile-container__image--picture"
+        - else
+          .profile-container__image--icon
+            = icon("fas", "user-circle")
+        = f.file_field :image, class:"profile-container__image--form"
+      .profile-container__age
+        .profile-container__age--label
+          年代
+          %span 必須
+        = f.select :age, ["10才未満","10代","20代","30代","40代","50代","60代","70代","80代","90代以上","秘密"], prompt: "選択して下さい",class:"profile-container__age--form"
+      .profile-container__gender
+        .profile-container__gender--label
+          性別
+          %span 必須
+        = f.select :gender, ["男性","女性","秘密"], prompt: "選択して下さい"
+      .profile-container__introduction
+        .profile-container__introduction--label
+          自己紹介
+          %span 必須
+        = f.text_area :introduction,placeholder:"よろしくお願いします！",class:"profile-container__introduction--form"
+      .profile-container__submit
+        = f.submit "変更する", class: "profile-container__submit--btn"
+    = link_to user_path(current_user.id),class:"back-btn" do
+      マイページへ戻る
