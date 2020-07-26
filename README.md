@@ -12,7 +12,10 @@ Cross×Rally
 個人競技という性質や相手との実力差で相手を誘うハードルが高くなっていることが問題だと考え、このアプリを開発しました。
 
 ## DEMO
-
+![トップページ](https://user-images.githubusercontent.com/66010511/88481363-04c0a700-cf96-11ea-8f1d-a461c69f6c91.jpg)
+![チャット画面](https://user-images.githubusercontent.com/66010511/88481371-1609b380-cf96-11ea-890c-73a724b61ea9.gif)
+<img width="1280" alt="記事一覧" src="https://user-images.githubusercontent.com/66010511/88481418-608b3000-cf96-11ea-9aac-f7338cc9e73e.png">
+![コメント](https://user-images.githubusercontent.com/66010511/88481380-2457cf80-cf96-11ea-9dca-ddfd97d2a560.gif)
 ## 実装予定の内容
 ・チャット画面のユーザーアイコンから対戦申込
 ・マイページから対戦申込履歴閲覧
