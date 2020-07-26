@@ -1,29 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリ名
+Cross×Rally
 
-Things you may want to cover:
+## 概要
+チャット機能を用いて、テニスの試合マッチングを行うことのできるアプリです。
+また、試合後には対戦相手を様々なステータスを用いて評価したり、レーティングを採用することで、自分の実力を客観的に把握し、同じ実力を持ったプレイヤーとの対戦を行いやすい環境作りをサポートします。
 
-* Ruby version
+## 制作背景
+私自身がテニスをしていた時、大会に出ない限り、一緒に試合や練習をするプレイヤーが固定化していると感じました。
+個人競技という性質や相手との実力差で相手を誘うハードルが高くなっていることが問題だと考え、このアプリを開発しました。
 
-* System dependencies
+## DEMO
 
-* Configuration
+## 実装予定の内容
+・チャット画面のユーザーアイコンから対戦申込
+・マイページから対戦申込履歴閲覧
+・試合予定日を超えた対戦履歴は相手ユーザーの評価ページへのリンクを出す
+・ユーザー評価はフットワーク、スタミナ、サーブ、リターン、ボレー、フォア、バック、メンタルのステータスを1〜100の数値で評価し、マイページでレーダーチャートで表示する
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-* DataBase
+## DB設計
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
