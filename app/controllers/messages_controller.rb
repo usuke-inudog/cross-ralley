@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
   before_action :set_group
-  before_action :set_profile, only: [:index]
 
   def index
     @message = Message.new
@@ -27,9 +26,5 @@ class MessagesController < ApplicationController
 
   def set_group
     @group = Group.find(params[:group_id])
-  end
-
-  def set_profile
-    @profile = Profile.find_by(user_id: current_user.id)
   end
 end
