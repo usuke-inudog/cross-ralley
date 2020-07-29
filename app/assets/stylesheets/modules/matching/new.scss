@@ -1,0 +1,63 @@
+.matching-new-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 50px;
+  .matching-apply-title{
+    margin: 30px 0;
+    border-bottom: 2px solid #3CCACE;
+  }
+  .guest-user-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+    width: 50vw;
+    &__image{
+      border: 5px groove #f3f3f3;
+      max-width: 40vw;
+      height: auto;
+    }
+    .profile-container{
+      width: 80%;
+      &__introduction{
+        height: 100px;
+        overflow: scroll;
+        border: 3px solid #f3f3f3;
+        text-align: start;
+      }
+    }
+  }
+  .matching-apply-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid greenyellow;
+    width: 50vw;
+    font-size: 16px;
+    span{
+      font-size: 22px;
+    }
+    .matching-form{
+      margin: 20px 0 10px;
+      width: 70%;
+      text-align: center;
+      &__schedule{
+        margin-bottom: 5px;
+      }
+      &__place{
+        margin-bottom: 5px;
+      }
+      &__deadline{
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .matching-link-box{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+}
