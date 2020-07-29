@@ -1,21 +1,36 @@
 .matching-new-body
   .matching-apply-title
     %h1 対戦/練習を申込む
-  .guest-user-box
-    対戦相手情報
-    = image_tag "#{@profile.image}", class:"guest-user-box__image"
-    .profile-container
-      .profile-container__name
-        ニックネーム：
-        = @user.nickname
-      .profile-container__age
-        年齢：
-        = @profile.age
-      .profile-container__gender
-        性別：
-        = @profile.gender
-      .profile-container__introduction
-        = @profile.introduction
+  - if @user.profile.present?
+    .guest-user-box
+      対戦相手情報
+      - if @profile.image.present?
+        = image_tag "#{@profile.image}", class:"guest-user-box__image"
+      - else
+        .guest-user-box__icon
+          = icon("fas", "user-circle")
+          %span イメージがありません
+      .profile-container
+        .profile-container__name
+          ニックネーム：
+          = @user.nickname
+        .profile-container__age
+          年齢：
+          = @profile.age
+        .profile-container__gender
+          性別：
+          = @profile.gender
+        .profile-container__introduction
+          = @profile.introduction
+  - else
+    .guest-user-box
+      .guest-user-box__icon
+        = icon("fas", "user-circle")
+        %span イメージがありません
+      .profile-container
+        .profile-container__name
+          ニックネーム：
+          = @user.nickname
   .matching-apply-box
     %span 申込フォーム
     -# まだテーブル作成していないため、ユーザーテーブルを仮置き
@@ -32,7 +47,7 @@
         = f.date_field "#"
       = f.submit "申し込む", class:"matching-form__submit-btn"
   .matching-link-box
-    = link_to messages_path do
+    = link_to groups_path do
       チャット画面へ戻る
     = link_to root_path do
       トップページへ戻る
