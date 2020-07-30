@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MatchingControllerTest < ActionDispatch::IntegrationTest
+class MatchingTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

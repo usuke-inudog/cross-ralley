@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_24_022353) do
+ActiveRecord::Schema.define(version: 2020_07_30_071129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,20 @@ ActiveRecord::Schema.define(version: 2020_07_24_022353) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "matchings", force: :cascade do |t|
+    t.bigint "host_user_id", null: false
+    t.bigint "guest_user_id", null: false
+    t.date "scheduled_date", null: false
+    t.time "scheduled_time", null: false
+    t.string "place"
+    t.date "response_deadline", null: false
+    t.string "status", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["guest_user_id"], name: "index_matchings_on_guest_user_id"
+    t.index ["host_user_id"], name: "index_matchings_on_host_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.string "text"
     t.string "image"
@@ -99,6 +113,8 @@ ActiveRecord::Schema.define(version: 2020_07_24_022353) do
   add_foreign_key "group_users", "users"
   add_foreign_key "likes", "artcles"
   add_foreign_key "likes", "users"
+  add_foreign_key "matchings", "users", column: "guest_user_id"
+  add_foreign_key "matchings", "users", column: "host_user_id"
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
   add_foreign_key "profiles", "users"

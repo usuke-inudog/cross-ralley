@@ -1,0 +1,43 @@
+.matching-new-body
+  .matching-apply-title
+    %h1 対戦/練習を申込む
+  .guest-user-box
+    対戦相手情報
+    - if @opponent.profile.present?
+      = image_tag "#{@profile.image}", class:"guest-user-box__image"
+      .profile-container
+        .profile-container__name
+          ニックネーム：
+          = @opponent.nickname
+        .profile-container__age
+          年齢：
+          = @profile.age
+        .profile-container__gender
+          性別：
+          = @profile.gender
+        .profile-container__introduction
+          = @profile.introduction
+    - else
+      .profile-container
+        .profile-container__name
+          ニックネーム：
+          = @opponent.nickname
+  .matching-apply-box
+    %span 申込フォーム
+    = form_with model:@matching, class:"matching-form", local: true do |f|
+      .matching-form__schedule
+        対戦予定日
+        = f.date_field :scheduled_date
+        = f.time_field :scheduled_time
+      .matching-form__place
+        対戦場所
+        = f.text_field :place
+      .matching-form__deadline
+        回答期限
+        = f.date_field :response_deadline
+      = f.submit "申し込む", class:"matching-form__submit-btn"
+  .matching-link-box
+    = link_to groups_path do
+      チャット画面へ戻る
+    = link_to root_path do
+      トップページへ戻る
