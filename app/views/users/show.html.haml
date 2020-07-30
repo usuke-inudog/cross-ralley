@@ -3,48 +3,7 @@
 = render "layouts/breadcrumbs"
 
 .mypage-body
-  .side-bar
-    .menu
-      .menu__title.menu-box
-        MENU
-      = link_to "#", class:"menu__info menu-box" do
-        .menu__info--text
-          お知らせ
-        .nav-arrow
-          = icon("fas", "chevron-right")
-      = link_to new_artcle_path, class:"menu__post menu-box" do
-        .menu__post--text
-          記事を投稿する
-        .nav-arrow
-          = icon("fas", "chevron-right")
-      = link_to "#", class:"menu__artcles menu-box" do
-        .menu__artcles--text
-          投稿記事一覧
-        .nav-arrow
-          = icon("fas", "chevron-right")
-      = link_to "#", class:"menu__inquiry menu-box" do
-        .menu__inquiry--text
-          お問い合わせ
-        .nav-arrow
-          = icon("fas", "chevron-right")
-    .setting
-      .setting__title.menu-box
-        設定
-      = link_to new_profile_path, class:"setting__profile menu-box" do
-        .setting__profile--text
-          プロフィール
-        .nav-arrow
-          = icon("fas", "chevron-right")
-      = link_to edit_user_registration_path, method: :get , class:"setting__acount menu-box" do
-        .setting__acount--text
-          アカウント
-        .nav-arrow
-          = icon("fas", "chevron-right")
-      = link_to destroy_user_session_path, method: :delete, class:"setting__log-out menu-box" do
-        .setting__log-out--text
-          ログアウト
-        .nav-arrow
-          = icon("fas", "chevron-right")
+  = render "layouts/mypage-side-bar"
   .main-contents
     .acount-container
       .acount-container__image

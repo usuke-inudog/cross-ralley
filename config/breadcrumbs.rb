@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :mypage do
-  link "マイページ", user_path
+  link "マイページ", user_path(current_user.id)
 end
 
 crumb :artcles do
@@ -14,4 +14,9 @@ crumb :artcle do |artcle|
   artcle = Artcle.find(params[:id])
   link "#{artcle.title}", artcle_path
   parent :artcles
+end
+
+crumb :schedule do
+  link "対戦予定一覧", user_schedules_path(current_user.id)
+  parent :mypage
 end
