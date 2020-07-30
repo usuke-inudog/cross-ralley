@@ -10,7 +10,9 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    resources :schedules, only: [:index]
+  end
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
   resources :groups, only: [:index,:new, :create,:edit, :update] do
     resources :messages, only:[:index, :create]

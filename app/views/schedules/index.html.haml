@@ -1,0 +1,80 @@
+= render "layouts/header"
+- breadcrumb :schedule
+= render "layouts/breadcrumbs"
+
+.mypage-body
+  = render "layouts/mypage-side-bar"
+  .schedule-box
+    .unapproved-container
+      .unapproved-container__title
+        未承認リスト
+      = render "schedule-list-title"
+      = render "schedule-list"
+    .applying-container
+      .applying-container__title
+        承認待ち
+      = render "schedule-list-title"
+      .schedule-list
+        .schedule-list__date.shedule-list-cell
+          2021年1月17日
+          %br
+          18:00〜
+        .schedule-title-list__opponent.shedule-list-cell
+          堕天使ヨハネ
+        .schedule-title-list__place.shedule-list-cell
+          魔界
+        .schedule-title-list__deadline.shedule-list-cell
+          2020年8月31日
+        .schedule-title-list__btn.schedule-status
+          回答待ち
+    .approved-container
+      .approved-container__title
+        対戦予定
+      = render "schedule-list-title"
+      .schedule-list
+        .schedule-list__date.shedule-list-cell
+          2021年1月17日
+          %br
+          18:00〜
+        .schedule-title-list__opponent.shedule-list-cell
+          堕天使ヨハネ
+        .schedule-title-list__place.shedule-list-cell
+          魔界
+        .schedule-title-list__deadline.shedule-list-cell
+          2020年8月31日
+        .schedule-title-list__btn.schedule-status
+          対戦待ち
+    .unrated-container
+      .unrated-container__title
+        評価待ち
+      = render "schedule-list-title"
+      .schedule-list
+        .schedule-list__date.shedule-list-cell
+          2021年1月17日
+          %br
+          18:00〜
+        .schedule-title-list__opponent.shedule-list-cell
+          堕天使ヨハネ
+        .schedule-title-list__place.shedule-list-cell
+          魔界
+        .schedule-title-list__deadline.shedule-list-cell
+          2020年8月31日
+        .schedule-title-list__btn.rating-btn
+          評価する
+    .completed-container
+      .completed-container__title
+        完了リスト
+      = render "schedule-list-title"
+      .schedule-list
+        .schedule-list__date.shedule-list-cell
+          2021年1月17日
+          %br
+          18:00〜
+        .schedule-title-list__opponent.shedule-list-cell
+          堕天使ヨハネ
+        .schedule-title-list__place.shedule-list-cell
+          魔界
+        .schedule-title-list__deadline.shedule-list-cell
+          2020年8月31日
+        .schedule-title-list__btn.conpleted-btn
+          完了
