@@ -19,6 +19,15 @@
       max-width: 40vw;
       height: auto;
     }
+    &__icon{
+      display: flex;
+      flex-direction: column;
+      font-size: 100px;
+      margin-bottom: 10px;
+      span{
+        font-size: 14px;
+      }
+    }
     .profile-container{
       width: 80%;
       &__introduction{
