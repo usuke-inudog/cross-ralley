@@ -44,6 +44,11 @@
       @include schedule-titles
     }
   }
+  .expired-container{
+    &__title{
+      @include schedule-titles
+    }
+  }
   .schedule-title-list{
     width: 100%;
     display: flex;
@@ -77,6 +82,11 @@
   }
   .conpleted-btn{
     background-color: paleturquoise;
+    @include schedule-btns
+  }
+  .expired-btn{
+    background-color: red;
+    color: #fff;
     @include schedule-btns
   }
 }
