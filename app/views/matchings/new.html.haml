@@ -25,6 +25,9 @@
   .matching-apply-box
     %span 申込フォーム
     = form_with model:@matching, class:"matching-form", local: true do |f|
+      .matching-form__type
+        試合/練習
+        = f.select :match_type, ["試合","練習"], prompt: "選択して下さい"
       .matching-form__schedule
         対戦予定日
         = f.date_field :scheduled_date

@@ -43,7 +43,7 @@ class MatchingsController < ApplicationController
   end
 
   def matching_params
-    params.require(:matching).permit(:scheduled_date, :scheduled_time, :place, :response_deadline).merge(host_user_id: current_user.id, guest_user_id: @@opponent.id, status: "申込中")
+    params.require(:matching).permit(:match_type, :scheduled_date, :scheduled_time, :place, :response_deadline).merge(host_user_id: current_user.id, guest_user_id: @@opponent.id, status: "申込中")
   end
 
   def set_matching_for_create
