@@ -1,13 +1,33 @@
 .schedule-list
   .schedule-list__date.shedule-list-cell
-    2021年1月17日
+    = schedule.scheduled_date.strftime('%Y年%m月%d日')
     %br
-    18:00〜
+    = schedule.scheduled_time.strftime('%H:%M')
+    〜
   .schedule-title-list__opponent.shedule-list-cell
-    堕天使ヨハネ
+    - if current_user.id == schedule.host_user_id
+      = User.find(schedule.guest_user_id).nickname
+    - else
+      = User.find(schedule.host_user_id).nickname
   .schedule-title-list__place.shedule-list-cell
-    魔界
+    = schedule.place
   .schedule-title-list__deadline.shedule-list-cell
-    2020年8月31日
-  .schedule-title-list__btn.approve-btn
-    承認する
+    = schedule.response_deadline.strftime('%Y年%m月%d日')
+  - if @type == "未承認"
+    .schedule-title-list__btn.approve-btn
+      承認する
+  - elsif @type == "承認待ち"
+    .schedule-title-list__btn.schedule-status
+      回答待ち
+  - elsif @type == "対戦予定"
+    .schedule-title-list__btn.schedule-status
+      対戦待ち
+  - elsif @type == "評価待ち"
+    .schedule-title-list__btn.rating-btn
+      評価する
+  - elsif @type == "完了"
+    .schedule-title-list__btn.conpleted-btn
+      完了
+  - elsif @type == "回答期限切れ"
+    .schedule-title-list__btn.expired-btn
+      削除
