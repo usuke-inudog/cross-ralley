@@ -4,6 +4,7 @@ class Matching < ApplicationRecord
 
   validates :host_user,         presence: true
   validates :guest_user,        presence: true
+  validates :match_type,              presence: true
   validates :scheduled_date,    presence: true
   validates :scheduled_time,    presence: true
   validates :response_deadline, presence: true

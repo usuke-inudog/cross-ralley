@@ -1,4 +1,6 @@
 .schedule-list
+  .schedule-list__type.shedule-list-cell
+    = schedule.match_type
   .schedule-list__date.shedule-list-cell
     = schedule.scheduled_date.strftime('%Y年%m月%d日')
     %br

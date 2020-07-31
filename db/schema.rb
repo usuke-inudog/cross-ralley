@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_30_071129) do
+ActiveRecord::Schema.define(version: 2020_07_31_080417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2020_07_30_071129) do
 
   create_table "groups", force: :cascade do |t|
     t.string "group_name", null: false
-    t.string "group_type", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_name"], name: "index_groups_on_group_name", unique: true
@@ -62,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_071129) do
   create_table "matchings", force: :cascade do |t|
     t.bigint "host_user_id", null: false
     t.bigint "guest_user_id", null: false
+    t.string "match_type", null: false
     t.date "scheduled_date", null: false
     t.time "scheduled_time", null: false
     t.string "place"
