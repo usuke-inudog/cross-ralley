@@ -1,6 +1,8 @@
 class MatchingsController < ApplicationController
   before_action :set_opponent, only: [:new]
   before_action :set_profile, only: [:new]
+  before_action :set_matching_for_create, only: :update
+  before_action :set_match, only: :destroy
 
   def new
     @matching = Matching.new
@@ -16,6 +18,15 @@ class MatchingsController < ApplicationController
     end
   end
   
+  def update
+    @matching.update(status: "承認済")
+    redirect_to user_schedules_path(current_user.id)
+  end
+
+  def destroy
+    @matching.delete
+    redirect_to user_schedules_path(current_user.id)
+  end
 
   private
 
@@ -33,5 +44,9 @@ class MatchingsController < ApplicationController
 
   def matching_params
     params.require(:matching).permit(:scheduled_date, :scheduled_time, :place, :response_deadline).merge(host_user_id: current_user.id, guest_user_id: @@opponent.id, status: "申込中")
+  end
+
+  def set_matching_for_create
+    @matching = Matching.find(params[:format])
   end
 end

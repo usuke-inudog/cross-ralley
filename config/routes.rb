@@ -11,11 +11,12 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:show] do
-    resources :schedules, only: [:index]
+    resources :schedules, only: [:index, :update]
   end
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
   resources :groups, only: [:index,:new, :create,:edit, :update] do
     resources :messages, only:[:index, :create]
   end
-  resources :matchings, only: [:new, :create]
+  resources :matchings, only: [:new, :create, :destroy]
+  put 'matchings(.:format)' => 'matchings#update'
 end
