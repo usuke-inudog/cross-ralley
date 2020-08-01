@@ -1,0 +1,74 @@
+@mixin range {
+  margin-bottom: 20px;
+  &__label{
+    font-size: 18px;
+    text-align: center;
+  }
+  &__scale{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 8px;
+  }
+}
+
+.userstatus-new-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .rating-title{
+    margin: 30px 0;
+    border-bottom: 2px solid #3CCACE;
+  }
+  .rating-form{
+    width: 40%;
+   &__title{
+      text-align: center;
+      font-size: 18px;
+      margin: 30px 0;
+    }
+    .footwork-form{
+      @include range
+    }
+    .stamina-form{
+      @include range
+    }
+    .sevice-form{
+      @include range
+    }
+    .return-form{
+      @include range
+    }
+    .volley-form{
+      @include range
+    }
+    .forehand-form{
+      @include range
+    }
+    .backhand-form{
+      @include range
+    }
+    .mental-form{
+      @include range
+    }
+    .submit-btn{
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+      &__form{
+        width: 80px;
+        height: 40px;
+      }
+    }
+  }
+  .rating-link-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    &__back-schedule{
+      margin-bottom: 5px;
+    }
+  }
+}
+

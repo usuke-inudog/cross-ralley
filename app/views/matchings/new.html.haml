@@ -1,27 +1,7 @@
 .matching-new-body
   .matching-apply-title
     %h1 対戦/練習を申込む
-  .guest-user-box
-    対戦相手情報
-    - if @opponent.profile.present?
-      = image_tag "#{@profile.image}", class:"guest-user-box__image"
-      .profile-container
-        .profile-container__name
-          ニックネーム：
-          = @opponent.nickname
-        .profile-container__age
-          年齢：
-          = @profile.age
-        .profile-container__gender
-          性別：
-          = @profile.gender
-        .profile-container__introduction
-          = @profile.introduction
-    - else
-      .profile-container
-        .profile-container__name
-          ニックネーム：
-          = @opponent.nickname
+  = render "layouts/opponent-box"
   .matching-apply-box
     %span 申込フォーム
     = form_with model:@matching, class:"matching-form", local: true do |f|

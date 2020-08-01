@@ -1,0 +1,133 @@
+-#各スライダーの値を出す際、最初のrangeクラスの子要素で最初のspan要素に書き出しているため、注意！
+.userstatus-new-body
+  .rating-title
+    %h1 対戦相手を評価する
+  = render "layouts/opponent-box"
+  = form_with model: @userstatus, class:"rating-form", local: true do |f|
+    .rating-form__title
+      0〜100で評価してください
+    .footwork-form.range
+      .footwork-form__label
+        フットワーク：
+        %span 50
+      .footwork-form__form
+        = f.range_field "#", class: "footwork-form__form--input", max: 100, min: 0, step: 1, value: 50
+      .footwork-form__scale
+        .footwork-form__scale--start
+          0
+        .footwork-form__scale--center
+          50
+        .footwork-form__scale--end
+          100
+    .stamina-form.range
+      .stamina-form__label
+        スタミナ：
+        %span 50
+      .stamina-form__form
+        = f.range_field "#", class: "stamina-form__form--input", max: 100, min: 0, step: 1, value: 50
+      .stamina-form__scale
+        .stamina-form__scale--start
+          0
+        .stamina-form__scale--center
+          50
+        .stamina-form__scale--end
+          100
+    .sevice-form.range
+      .sevice-form__label
+        サーブ：
+        %span 50
+      .sevice-form__form
+        = f.range_field "#", class: "sevice-form__form--input", max: 100, min: 0, step: 1, value: 50
+      .sevice-form__scale
+        .sevice-form__scale--start
+          0
+        .sevice-form__scale--center
+          50
+        .sevice-form__scale--end
+          100
+    .return-form.range
+      .return-form__label
+        リターン：
+        %span 50
+      .return-form__form
+        = f.range_field "#", class: "return-form__form--input", max: 100, min: 0, step: 1, value: 50
+      .return-form__scale
+        .return-form__scale--start
+          0
+        .return-form__scale--center
+          50
+        .return-form__scale--end
+          100
+    .volley-form.range
+      .volley-form__label
+        ボレー：
+        %span 50
+      .volley-form__form
+        = f.range_field "#", class: "volley-form__form--input", max: 100, min: 0, step: 1, value: 50
+      .volley-form__scale
+        .volley-form__scale--start
+          0
+        .volley-form__scale--center
+          50
+        .volley-form__scale--end
+          100
+    .forehand-form.range
+      .forehand-form__label
+        フォアハンド：
+        %span 50
+      .forehand-form__form
+        = f.range_field "#", class: "forehand-form__form--input", max: 100, min: 0, step: 1, value: 50
+      .forehand-form__scale
+        .forehand-form__scale--start
+          0
+        .forehand-form__scale--center
+          50
+        .forehand-form__scale--end
+          100
+    .backhand-form.range
+      .backhand-form__label
+        バックハンド：
+        %span 50
+      .backhand-form__form
+        = f.range_field "#", clas: "backhand-form__form--input", max: 100, min: 0, step: 1, value: 50
+      .backhand-form__scale
+        .backhand-form__scale--start
+          0
+        .backhand-form__scale--center
+          50
+        .backhand-form__scale--end
+          100
+    .mental-form.range
+      .mental-form__label
+        メンタル：
+        %span 50
+      .mental-form__form
+        = f.range_field "#",class: "mental-form__form-input",  max: 100, min: 0, step: 1, value: 50
+      .mental-form__scale
+        .mental-form__scale--start
+          0
+        .mental-form__scale--center
+          50
+        .mental-form__scale--end
+          100
+    .submit-btn
+      = f.submit "送信", class: "submit-btn__form"
+  .rating-link-box
+    = link_to user_schedules_path(current_user.id), class: "rating-link-box__back-schedule" do
+      スケジュール一覧へ戻る
+    = link_to root_path do
+      トップページへ戻る
+
+-# スライダーの値を書き出す
+:javascript
+  var elem = document.getElementsByClassName('range');
+  var rangeValue = function (elem, target) {
+    return function(evt){
+      target.innerHTML = elem.value;
+    }
+  }
+  for(var i = 0, max = elem.length; i < max; i++){
+    bar = elem[i].getElementsByTagName('input')[0];
+    target = elem[i].getElementsByTagName('span')[0];
+    bar.addEventListener('input', rangeValue(bar, target));
+  }
