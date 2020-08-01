@@ -24,12 +24,8 @@
     .schedule-title-list__btn.schedule-status
       対戦待ち
   - elsif @type == "評価待ち"
-    - if current_user.id == schedule.host_user_id
-      = link_to new_userstatus_path(schedule.guest_user_id), class: "schedule-title-list__btn rating-btn" do
-        評価する
-    - else
-      = link_to new_userstatus_path(schedule.host_user_id), class: "schedule-title-list__btn rating-btn" do
-        評価する
+    = link_to new_userstatus_path(schedule.id), class: "schedule-title-list__btn rating-btn" do
+      評価する
   - elsif @type == "完了"
     .schedule-title-list__btn.conpleted-btn
       完了

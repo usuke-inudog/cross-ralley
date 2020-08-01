@@ -11,7 +11,7 @@
         フットワーク：
         %span 50
       .footwork-form__form
-        = f.range_field "#", class: "footwork-form__form--input", max: 100, min: 0, step: 1, value: 50
+        = f.range_field :footwork, class: "footwork-form__form--input", max: 100, min: 0, step: 1, value: 50
       .footwork-form__scale
         .footwork-form__scale--start
           0
@@ -24,7 +24,7 @@
         スタミナ：
         %span 50
       .stamina-form__form
-        = f.range_field "#", class: "stamina-form__form--input", max: 100, min: 0, step: 1, value: 50
+        = f.range_field :stamina, class: "stamina-form__form--input", max: 100, min: 0, step: 1, value: 50
       .stamina-form__scale
         .stamina-form__scale--start
           0
@@ -37,7 +37,7 @@
         サーブ：
         %span 50
       .sevice-form__form
-        = f.range_field "#", class: "sevice-form__form--input", max: 100, min: 0, step: 1, value: 50
+        = f.range_field :service, class: "sevice-form__form--input", max: 100, min: 0, step: 1, value: 50
       .sevice-form__scale
         .sevice-form__scale--start
           0
@@ -50,7 +50,7 @@
         リターン：
         %span 50
       .return-form__form
-        = f.range_field "#", class: "return-form__form--input", max: 100, min: 0, step: 1, value: 50
+        = f.range_field :return, class: "return-form__form--input", max: 100, min: 0, step: 1, value: 50
       .return-form__scale
         .return-form__scale--start
           0
@@ -63,7 +63,7 @@
         ボレー：
         %span 50
       .volley-form__form
-        = f.range_field "#", class: "volley-form__form--input", max: 100, min: 0, step: 1, value: 50
+        = f.range_field :volley, class: "volley-form__form--input", max: 100, min: 0, step: 1, value: 50
       .volley-form__scale
         .volley-form__scale--start
           0
@@ -76,7 +76,7 @@
         フォアハンド：
         %span 50
       .forehand-form__form
-        = f.range_field "#", class: "forehand-form__form--input", max: 100, min: 0, step: 1, value: 50
+        = f.range_field :forehand, class: "forehand-form__form--input", max: 100, min: 0, step: 1, value: 50
       .forehand-form__scale
         .forehand-form__scale--start
           0
@@ -89,7 +89,7 @@
         バックハンド：
         %span 50
       .backhand-form__form
-        = f.range_field "#", clas: "backhand-form__form--input", max: 100, min: 0, step: 1, value: 50
+        = f.range_field :backhand, clas: "backhand-form__form--input", max: 100, min: 0, step: 1, value: 50
       .backhand-form__scale
         .backhand-form__scale--start
           0
@@ -102,7 +102,7 @@
         メンタル：
         %span 50
       .mental-form__form
-        = f.range_field "#",class: "mental-form__form-input",  max: 100, min: 0, step: 1, value: 50
+        = f.range_field :mental, class: "mental-form__form-input",  max: 100, min: 0, step: 1, value: 50
       .mental-form__scale
         .mental-form__scale--start
           0

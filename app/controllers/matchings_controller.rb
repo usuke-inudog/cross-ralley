@@ -47,6 +47,6 @@ class MatchingsController < ApplicationController
   end
 
   def set_matching_for_create
-    @matching = Matching.find(params[:format])
+    @matching = Matching.find(c)
   end
 end

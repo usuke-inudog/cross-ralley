@@ -110,7 +110,6 @@ ActiveRecord::Schema.define(version: 2020_07_31_090424) do
   end
 
   create_table "userstatuses", force: :cascade do |t|
-    t.integer "rate", null: false
     t.integer "footwork", null: false
     t.integer "stamina", null: false
     t.integer "service", null: false
@@ -119,12 +118,14 @@ ActiveRecord::Schema.define(version: 2020_07_31_090424) do
     t.integer "forehand", null: false
     t.integer "backhand", null: false
     t.integer "mental", null: false
+    t.bigint "matching_id", null: false
     t.bigint "evaluated_user_id", null: false
     t.bigint "evaluate_user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["evaluate_user_id"], name: "index_userstatuses_on_evaluate_user_id"
     t.index ["evaluated_user_id"], name: "index_userstatuses_on_evaluated_user_id"
+    t.index ["matching_id"], name: "index_userstatuses_on_matching_id"
   end
 
   add_foreign_key "group_users", "groups"
@@ -136,6 +137,7 @@ ActiveRecord::Schema.define(version: 2020_07_31_090424) do
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "userstatuses", "matchings"
   add_foreign_key "userstatuses", "users", column: "evaluate_user_id"
   add_foreign_key "userstatuses", "users", column: "evaluated_user_id"
 end
