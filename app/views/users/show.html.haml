@@ -15,5 +15,10 @@
         .acount-container__image--name
           = @user.nickname
     .chart-container
-      予定
+      - if @statuses.length == 0
+        .chart-container__message
+          ステータスはありません。
+          %br
+          対戦をして相手から評価をもらってください
+      = render 'layouts/radar-chart'
     .record
