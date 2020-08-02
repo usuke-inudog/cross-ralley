@@ -75,11 +75,8 @@
   .main-contents{
     width: calc(100% - 300px);
     .chart-container{
-      height: 500px;
-      background:url("/assets/レーダーチャート.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
+      height: 450px;
+      background-color: #FFF;
     }
     .acount-container{
       height: 150px;
