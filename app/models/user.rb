@@ -10,12 +10,8 @@ class User < ApplicationRecord
   has_many  :messages
   has_many  :artcles
   has_many  :comments
-  has_many  :likes
+  has_many  :favorites
   has_one   :profile
   has_many  :match
   has_many  :userstatus
-
-  def already_liked?(artcle)
-    self.likes.exists?(artcle_id: artcle.id)
-  end
 end
