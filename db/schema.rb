@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_31_090424) do
+ActiveRecord::Schema.define(version: 2020_08_03_080250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 2020_07_31_090424) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "artcle_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artcle_id"], name: "index_favorites_on_artcle_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "group_users", force: :cascade do |t|
     t.bigint "group_id"
     t.bigint "user_id"
@@ -50,6 +59,16 @@ ActiveRecord::Schema.define(version: 2020_07_31_090424) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_name"], name: "index_groups_on_group_name", unique: true
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "artcle_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artcle_id"], name: "index_likes_on_artcle_id"
+    t.index ["user_id", "artcle_id"], name: "index_likes_on_user_id_and_artcle_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "matchings", force: :cascade do |t|
@@ -126,8 +145,12 @@ ActiveRecord::Schema.define(version: 2020_07_31_090424) do
   add_foreign_key "artcles", "users"
   add_foreign_key "comments", "artcles"
   add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "artcles"
+  add_foreign_key "favorites", "users"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
+  add_foreign_key "likes", "artcles"
+  add_foreign_key "likes", "users"
   add_foreign_key "matchings", "users", column: "guest_user_id"
   add_foreign_key "matchings", "users", column: "host_user_id"
   add_foreign_key "messages", "groups"
