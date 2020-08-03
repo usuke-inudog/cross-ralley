@@ -54,64 +54,28 @@ class MatchingsController < ApplicationController
 
   def set_statuses
     # 自分のステータス
-    @statuses = Userstatus.where(evaluated_user_id: current_user.id)
-    if @statuses.length != 0
-      @footwork = []
-      @stamina = []
-      @service = []
-      @return = []
-      @volley = []
-      @forehand = []
-      @backhand = []
-      @mental = []
-      @statuses.each do |status|
-        @footwork << status.footwork
-        @stamina << status.stamina
-        @service << status.service
-        @return << status.return
-        @volley << status.volley
-        @forehand << status.forehand
-        @backhand << status.backhand
-        @mental << status.mental
-      end
-      @footwork = @footwork.sum.fdiv(@footwork.length)
-      @stamina = @stamina.sum.fdiv(@stamina.length)
-      @service = @service.sum.fdiv(@service.length)
-      @return = @return.sum.fdiv(@return.length)
-      @volley = @volley.sum.fdiv(@volley.length)
-      @forehand = @forehand.sum.fdiv(@forehand.length)
-      @backhand = @backhand.sum.fdiv(@backhand.length)
-      @mental = @mental.sum.fdiv(@mental.length)
+    @user_status = Userstatus.find_by(user_id: current_user.id)
+    if @user_status.present?
+      @footwork = @user_status.footwork
+      @stamina = @user_status.stamina
+      @service = @user_status.service
+      @return = @user_status.return
+      @volley = @user_status.volley
+      @forehand = @user_status.forehand
+      @backhand = @user_status.backhand
+      @mental = @user_status.mental
     end
     # 相手のステータス
-    @o_statuses = Userstatus.where(evaluated_user_id: @opponent.id)
-    if @o_statuses.length != 0
-      @o_footwork = []
-      @o_stamina = []
-      @o_service = []
-      @o_return = []
-      @o_volley = []
-      @o_forehand = []
-      @o_backhand = []
-      @o_mental = []
-      @o_statuses.each do |status|
-        @o_footwork << status.footwork
-        @o_stamina << status.stamina
-        @o_service << status.service
-        @o_return << status.return
-        @o_volley << status.volley
-        @o_forehand << status.forehand
-        @o_backhand << status.backhand
-        @o_mental << status.mental
-      end
-      @o_footwork = @o_footwork.sum.fdiv(@o_footwork.length)
-      @o_stamina = @o_stamina.sum.fdiv(@o_stamina.length)
-      @o_service = @o_service.sum.fdiv(@o_service.length)
-      @o_return = @o_return.sum.fdiv(@o_return.length)
-      @o_volley = @o_volley.sum.fdiv(@o_volley.length)
-      @o_forehand = @o_forehand.sum.fdiv(@o_forehand.length)
-      @o_backhand = @o_backhand.sum.fdiv(@o_backhand.length)
-      @o_mental = @o_mental.sum.fdiv(@o_mental.length)
+    @o_user_status = Userstatus.find_by(user_id: @opponent.id)
+    if @o_user_status.present?
+      @o_footwork = @o_user_status.footwork
+      @o_stamina = @o_user_status.stamina
+      @o_service = @o_user_status.service
+      @o_return = @o_user_status.return
+      @o_volley = @o_user_status.volley
+      @o_forehand = @o_user_status.forehand
+      @o_backhand = @o_user_status.backhand
+      @o_mental = @o_user_status.mental
     end
   end
 

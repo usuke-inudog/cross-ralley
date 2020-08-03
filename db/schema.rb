@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_03_080250) do
+ActiveRecord::Schema.define(version: 2020_08_03_222002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,25 @@ ActiveRecord::Schema.define(version: 2020_08_03_080250) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["artcle_id"], name: "index_comments_on_artcle_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "evaluation_histories", force: :cascade do |t|
+    t.integer "footwork", null: false
+    t.integer "stamina", null: false
+    t.integer "service", null: false
+    t.integer "return", null: false
+    t.integer "volley", null: false
+    t.integer "forehand", null: false
+    t.integer "backhand", null: false
+    t.integer "mental", null: false
+    t.bigint "matching_id", null: false
+    t.bigint "evaluated_user_id", null: false
+    t.bigint "evaluate_user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["evaluate_user_id"], name: "index_evaluation_histories_on_evaluate_user_id"
+    t.index ["evaluated_user_id"], name: "index_evaluation_histories_on_evaluated_user_id"
+    t.index ["matching_id"], name: "index_evaluation_histories_on_matching_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -124,6 +143,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_080250) do
   end
 
   create_table "userstatuses", force: :cascade do |t|
+    t.integer "rate", null: false
     t.integer "footwork", null: false
     t.integer "stamina", null: false
     t.integer "service", null: false
@@ -132,19 +152,18 @@ ActiveRecord::Schema.define(version: 2020_08_03_080250) do
     t.integer "forehand", null: false
     t.integer "backhand", null: false
     t.integer "mental", null: false
-    t.bigint "matching_id", null: false
-    t.bigint "evaluated_user_id", null: false
-    t.bigint "evaluate_user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["evaluate_user_id"], name: "index_userstatuses_on_evaluate_user_id"
-    t.index ["evaluated_user_id"], name: "index_userstatuses_on_evaluated_user_id"
-    t.index ["matching_id"], name: "index_userstatuses_on_matching_id"
+    t.index ["user_id"], name: "index_userstatuses_on_user_id"
   end
 
   add_foreign_key "artcles", "users"
   add_foreign_key "comments", "artcles"
   add_foreign_key "comments", "users"
+  add_foreign_key "evaluation_histories", "matchings"
+  add_foreign_key "evaluation_histories", "users", column: "evaluate_user_id"
+  add_foreign_key "evaluation_histories", "users", column: "evaluated_user_id"
   add_foreign_key "favorites", "artcles"
   add_foreign_key "favorites", "users"
   add_foreign_key "group_users", "groups"
@@ -156,7 +175,5 @@ ActiveRecord::Schema.define(version: 2020_08_03_080250) do
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
   add_foreign_key "profiles", "users"
-  add_foreign_key "userstatuses", "matchings"
-  add_foreign_key "userstatuses", "users", column: "evaluate_user_id"
-  add_foreign_key "userstatuses", "users", column: "evaluated_user_id"
+  add_foreign_key "userstatuses", "users"
 end

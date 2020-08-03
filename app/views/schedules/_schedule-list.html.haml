@@ -24,7 +24,7 @@
     .schedule-title-list__btn.schedule-status
       対戦待ち
   - elsif @type == "評価待ち"
-    = link_to new_userstatus_path(schedule.id), class: "schedule-title-list__btn rating-btn" do
+    = link_to new_evaluation_history_path(schedule.id), class: "schedule-title-list__btn rating-btn" do
       評価する
   - elsif @type == "完了"
     .schedule-title-list__btn.conpleted-btn

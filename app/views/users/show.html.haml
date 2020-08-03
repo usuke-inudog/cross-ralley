@@ -20,7 +20,7 @@
         .acount-container__image--name
           = @user.nickname
     .chart-container
-      - if @statuses.length == 0
+      - if @user_status == nil
         .chart-container__message
           ステータスはありません。
           %br
