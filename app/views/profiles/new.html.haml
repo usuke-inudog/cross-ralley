@@ -9,6 +9,11 @@
         .profile-container__image--icon
           = icon("fas", "user-circle")
         = f.file_field :image, class:"profile-container__image--form"
+      .profile-container__address
+        .profile-container__address--label
+          住所
+          %span 必須
+        = f.collection_select :address, Prefecture.all, :name, :name, {prompt: "選択してください"}
       .profile-container__age
         .profile-container__age--label
           年代

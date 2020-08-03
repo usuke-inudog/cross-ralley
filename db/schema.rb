@@ -20,17 +20,20 @@ ActiveRecord::Schema.define(version: 2020_07_31_090424) do
     t.string "text"
     t.string "image"
     t.string "video"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.index ["user_id"], name: "index_artcles_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "artcle_id"
+    t.bigint "user_id"
+    t.bigint "artcle_id"
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["artcle_id"], name: "index_comments_on_artcle_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "group_users", force: :cascade do |t|
@@ -47,15 +50,6 @@ ActiveRecord::Schema.define(version: 2020_07_31_090424) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_name"], name: "index_groups_on_group_name", unique: true
-  end
-
-  create_table "likes", force: :cascade do |t|
-    t.bigint "artcle_id"
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["artcle_id"], name: "index_likes_on_artcle_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "matchings", force: :cascade do |t|
@@ -88,7 +82,8 @@ ActiveRecord::Schema.define(version: 2020_07_31_090424) do
     t.string "image"
     t.string "age", null: false
     t.string "gender", null: false
-    t.string "introduction", null: false
+    t.text "introduction", null: false
+    t.string "address", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -128,10 +123,11 @@ ActiveRecord::Schema.define(version: 2020_07_31_090424) do
     t.index ["matching_id"], name: "index_userstatuses_on_matching_id"
   end
 
+  add_foreign_key "artcles", "users"
+  add_foreign_key "comments", "artcles"
+  add_foreign_key "comments", "users"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
-  add_foreign_key "likes", "artcles"
-  add_foreign_key "likes", "users"
   add_foreign_key "matchings", "users", column: "guest_user_id"
   add_foreign_key "matchings", "users", column: "host_user_id"
   add_foreign_key "messages", "groups"

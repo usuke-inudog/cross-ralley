@@ -62,3 +62,4 @@ gem 'kaminari'
 gem 'jquery-rails'
 gem "gretel"
 gem 'chart-js-rails'
+gem 'active_hash'
