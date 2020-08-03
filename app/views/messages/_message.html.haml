@@ -12,8 +12,8 @@
         .user-hover-box
           = link_to new_matching_path(message.user.id), class:"matching-apply" do
             試合/練習に誘う
-          = link_to "#", class:"users-profile" do
-            ユーザー情報
+            %span
+              = icon("fas", "chevron-right")
     .posting-contents__container
       .posting-contents__container--user-name
         = message.user.nickname

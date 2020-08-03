@@ -1,0 +1,62 @@
+%canvas#myRaderChart
+%script{src: "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"}
+
+:javascript
+  // 自分のデータ
+  var name = '#{@user.nickname}';
+  var footwork = '#{@footwork}';
+  var stamina = '#{@stamina}';
+  var service = '#{@service}';
+  var receive = '#{@return}';
+  var volley = '#{@volley}';
+  var forehand = '#{@forehand}';
+  var backhand = '#{@backhand}';
+  var mental = '#{@mental}';
+  // 相手のデータ
+  var o_name = '#{@opponent.nickname}';
+  var o_footwork = '#{@o_footwork}';
+  var o_stamina = '#{@o_stamina}';
+  var o_service = '#{@o_service}';
+  var o_receive = '#{@o_return}';
+  var o_volley = '#{@o_volley}';
+  var o_forehand = '#{@o_forehand}';
+  var o_backhand = '#{@o_backhand}';
+  var o_mental = '#{@o_mental}';
+  var ctx = document.getElementById("myRaderChart");
+  var myRadarChart = new Chart(ctx, {
+    type: 'radar', 
+    data: { 
+        labels: ["フットワーク", "スタミナ", "サーブ", "リターン", "ボレー","フォアハンド","バックハンド","メンタル"],
+        datasets: [{
+            label: name,
+            data: [footwork, stamina, service, receive, volley, forehand, backhand, mental],
+            backgroundColor: 'rgba(0,0,80,0.4)',
+            borderColor: 'rgba(0,0,80,1)',
+            borderWidth: 1,
+            pointBackgroundColor: 'RGB(46,106,177)'
+        }, {
+            label: o_name,
+            data: [o_footwork, o_stamina, o_service, o_receive, o_volley, o_forehand, o_backhand, o_mental],
+            backgroundColor: 'rgba(0,255,0,0.4)',
+            borderColor: 'rgba(0,255,0,1)',
+            borderWidth: 1,
+            pointBackgroundColor: 'RGB(46,106,177)'
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'ステータス比較'
+        },
+        scale:{
+            ticks:{
+                suggestedMin: 0,
+                suggestedMax: 100,
+                stepSize: 10,
+                callback: function(value, index, values){
+                    return  value
+                }
+            }
+        }
+    }
+  });

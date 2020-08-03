@@ -2,6 +2,7 @@
   .matching-apply-title
     %h1 対戦/練習を申込む
   = render "layouts/opponent-box"
+  = render "layouts/double_radar_chart"
   .matching-apply-box
     %span 申込フォーム
     = form_with model:@matching, class:"matching-form", local: true do |f|
