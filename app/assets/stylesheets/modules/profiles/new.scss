@@ -40,6 +40,15 @@
         text-align: center;
       }
     }
+    &__address{
+      display: flex;
+      flex-direction: column;
+      text-align: start;
+      margin-bottom: 10px;
+      &--label{
+        @include profile-label
+      }
+    }
     &__age{
       display: flex;
       flex-direction: column;

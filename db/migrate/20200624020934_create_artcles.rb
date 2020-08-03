@@ -5,6 +5,7 @@ class CreateArtcles < ActiveRecord::Migration[6.0]
       t.string        :text
       t.string        :image
       t.string        :video
+      t.references    :user, foreign_key: true
       t.timestamps
     end
   end
