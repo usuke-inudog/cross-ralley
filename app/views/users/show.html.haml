@@ -1,7 +1,12 @@
 = render "layouts/header"
 - breadcrumb :mypage
 = render "layouts/breadcrumbs"
-
+- if @unapproved.length != 0
+  = link_to user_schedules_path(current_user.id), class:"mypage-info" do
+    対戦申込が
+    = @unapproved.length
+    件あります!
+.mypage-info
 .mypage-body
   = render "layouts/mypage-side-bar"
   .main-contents

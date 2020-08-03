@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
   before_action :set_profile, only: [:show]
   before_action :set_status, only: [:show]
+  before_action :search_unapproved_match, only: [:show]
   
   def show
   end
@@ -29,6 +30,10 @@ class UsersController < ApplicationController
 
   def set_profile
     @profile = Profile.find_by(user_id: current_user.id)
+  end
+
+  def search_unapproved_match
+    @unapproved = Matching.where(guest_user_id: current_user.id).where(status: "申込中").where('scheduled_date>= ?', Date.today)
   end
 
   def set_status
