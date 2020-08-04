@@ -38,13 +38,15 @@ class UsersController < ApplicationController
 
   def set_status
     @user_status = Userstatus.find_by(user_id: current_user.id)
-    @footwork = @user_status.footwork
-    @stamina = @user_status.stamina
-    @service = @user_status.service
-    @return = @user_status.return
-    @volley = @user_status.volley
-    @forehand = @user_status.forehand
-    @backhand = @user_status.backhand
-    @mental = @user_status.mental
+    if @user_status.present?
+      @footwork = @user_status.footwork
+      @stamina = @user_status.stamina
+      @service = @user_status.service
+      @return = @user_status.return
+      @volley = @user_status.volley
+      @forehand = @user_status.forehand
+      @backhand = @user_status.backhand
+      @mental = @user_status.mental
+    end
   end
 end

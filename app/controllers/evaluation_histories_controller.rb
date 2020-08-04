@@ -14,6 +14,8 @@ class EvaluationHistoriesController < ApplicationController
     @evaluation_history = EvaluationHistory.create(evaluation_history_params)
     if @evaluation_history.save
       completed_evaluation
+      statuses_average
+      update_status
       redirect_to user_schedules_path(current_user.id)
     else
       redirect_to root_path
@@ -43,13 +45,10 @@ class EvaluationHistoriesController < ApplicationController
 
   def completed_evaluation
     matching = Matching.find_by(id: @@matching_id)
-    matching.update(status: "完了")
-    statuses_average
-    @user_status = Userstatus.find_by(user_id: @@evaluated_user_id)
-    if @user_status.present?
-      @user_status.update(rate: 1500, footwork: @footwork, stamina: @stamina, service: @service, return: @return, volley: @volley, forehand: @forehand, backhand: @backhand, mental: @mental)
+    if matching.host_user_id == current_user.id
+      matching.update(completed_host_user_id: current_user.id)
     else
-      Userstatus.create(rate: 1500, footwork: @footwork, stamina: @stamina, service: @service, return: @return, volley: @volley, forehand: @forehand, backhand: @backhand, mental: @mental, user_id: @@evaluated_user_id)
+      matching.update(completed_guest_user_id: current_user.id)
     end
   end
   
@@ -81,5 +80,14 @@ class EvaluationHistoriesController < ApplicationController
     @forehand = @forehand.sum.fdiv(@forehand.length)
     @backhand = @backhand.sum.fdiv(@backhand.length)
     @mental = @mental.sum.fdiv(@mental.length)
+  end
+
+  def update_status
+    @user_status = Userstatus.find_by(user_id: @@evaluated_user_id)
+    if @user_status.present?
+      @user_status.update(rate: 1500, footwork: @footwork, stamina: @stamina, service: @service, return: @return, volley: @volley, forehand: @forehand, backhand: @backhand, mental: @mental)
+    else
+      Userstatus.create(rate: 1500, footwork: @footwork, stamina: @stamina, service: @service, return: @return, volley: @volley, forehand: @forehand, backhand: @backhand, mental: @mental, user_id: @@evaluated_user_id)
+    end
   end
 end

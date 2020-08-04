@@ -9,6 +9,8 @@ class CreateMatchings < ActiveRecord::Migration[6.0]
       t.string        :place
       t.date          :response_deadline, null: false
       t.string        :status,            null: false
+      t.references    :completed_host_user,         foreign_key: {to_table: :users}
+      t.references    :completed_guest_user,        foreign_key: {to_table: :users}
       t.timestamps
     end
   end

@@ -99,8 +99,12 @@ ActiveRecord::Schema.define(version: 2020_08_03_222002) do
     t.string "place"
     t.date "response_deadline", null: false
     t.string "status", null: false
+    t.bigint "completed_host_user_id"
+    t.bigint "completed_guest_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["completed_guest_user_id"], name: "index_matchings_on_completed_guest_user_id"
+    t.index ["completed_host_user_id"], name: "index_matchings_on_completed_host_user_id"
     t.index ["guest_user_id"], name: "index_matchings_on_guest_user_id"
     t.index ["host_user_id"], name: "index_matchings_on_host_user_id"
   end
@@ -170,6 +174,8 @@ ActiveRecord::Schema.define(version: 2020_08_03_222002) do
   add_foreign_key "group_users", "users"
   add_foreign_key "likes", "artcles"
   add_foreign_key "likes", "users"
+  add_foreign_key "matchings", "users", column: "completed_guest_user_id"
+  add_foreign_key "matchings", "users", column: "completed_host_user_id"
   add_foreign_key "matchings", "users", column: "guest_user_id"
   add_foreign_key "matchings", "users", column: "host_user_id"
   add_foreign_key "messages", "groups"
