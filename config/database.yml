@@ -81,9 +81,6 @@ test:
 #
 production:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
   database: cross_ralley_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
