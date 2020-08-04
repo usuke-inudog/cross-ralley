@@ -3,7 +3,7 @@
   .rating-title
     %h1 対戦相手を評価する
   = render "layouts/opponent-box"
-  = form_with model: @userstatus, class:"rating-form", local: true do |f|
+  = form_with model: @evaluation_history, class:"rating-form", local: true do |f|
     .rating-form__title
       0〜100で評価してください
     .footwork-form.range

@@ -37,32 +37,16 @@ class UsersController < ApplicationController
   end
 
   def set_status
-    @footwork = []
-    @stamina = []
-    @service = []
-    @return = []
-    @volley = []
-    @forehand = []
-    @backhand = []
-    @mental = []
-    @statuses = Userstatus.where(evaluated_user_id: current_user.id)
-    @statuses.each do |status|
-      @footwork << status.footwork
-      @stamina << status.stamina
-      @service << status.service
-      @return << status.return
-      @volley << status.volley
-      @forehand << status.forehand
-      @backhand << status.backhand
-      @mental << status.mental
+    @user_status = Userstatus.find_by(user_id: current_user.id)
+    if @user_status.present?
+      @footwork = @user_status.footwork
+      @stamina = @user_status.stamina
+      @service = @user_status.service
+      @return = @user_status.return
+      @volley = @user_status.volley
+      @forehand = @user_status.forehand
+      @backhand = @user_status.backhand
+      @mental = @user_status.mental
     end
-    @footwork = @footwork.sum.fdiv(@footwork.length)
-    @stamina = @stamina.sum.fdiv(@stamina.length)
-    @service = @service.sum.fdiv(@service.length)
-    @return = @return.sum.fdiv(@return.length)
-    @volley = @volley.sum.fdiv(@volley.length)
-    @forehand = @forehand.sum.fdiv(@forehand.length)
-    @backhand = @backhand.sum.fdiv(@backhand.length)
-    @mental = @mental.sum.fdiv(@mental.length)
   end
 end

@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   resources :matchings, only: [:new, :create, :destroy]
   put 'matchings(.:format)' => 'matchings#update'
   resources :userstatuses, only: [:new, :create]
+  resources :evaluation_histories, only: [:new, :create]
 end
