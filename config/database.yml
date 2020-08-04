@@ -85,5 +85,6 @@ production:
   encoding: unicode
   pool: 5
   database: cross_ralley_production
-  username: cross_ralley
-  password: <%= ENV['CROSS_RALLEY_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
