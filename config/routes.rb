@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   put 'matchings(.:format)' => 'matchings#update'
   resources :userstatuses, only: [:new, :create]
   resources :evaluation_histories, only: [:new, :create]
+  resources :rankings, only: [:index]
 end
