@@ -13,7 +13,7 @@
     .acount-container
       .acount-container__image
         - if current_user.profile.present? && current_user.profile.image?
-          = image_tag @profile.image.url, class: "acount-container__image--picture"
+          = image_tag "#{@profile.image}", class: "acount-container__image--picture"
         - else
           .acount-container__image--icon
             = icon("fas", "user-circle")
