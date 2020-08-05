@@ -68,6 +68,7 @@ gem 'jquery-rails'
 gem "gretel"
 gem 'chart-js-rails'
 gem 'active_hash'
+gem 'fog-aws'
 
 group :production do
   gem 'unicorn'
