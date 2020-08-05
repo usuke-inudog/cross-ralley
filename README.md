@@ -11,18 +11,37 @@ Cross×Rally
 ## 本番環境
 http://175.41.244.232
 
+## テスト用アカウント
+mailaddress:sample999@sample.com
+password:123456
 
 ## 制作背景
 私自身がテニスをしていた時、大会に出ない限り、一緒に試合や練習をするプレイヤーが固定化していると感じました。
-個人競技という性質や相手との実力差で相手を誘うハードルが高くなっていることが問題だと考え、このアプリを開発しました。
+個人競技という性質や相手との実力差で相手を誘うハードルが高くなっていることが問題だと考え、なるべくカジュアルに対戦が成立するようこのアプリを開発しました。<br>
+また、レーダーチャートを用いた能力評価システムを実装することで既存のSNSとの差別化を計りました。
 
 ## DEMO
 ![トップページ](https://user-images.githubusercontent.com/66010511/88481363-04c0a700-cf96-11ea-8f1d-a461c69f6c91.jpg)
 ![チャット画面](https://user-images.githubusercontent.com/66010511/88481371-1609b380-cf96-11ea-890c-73a724b61ea9.gif)
 <img width="1280" alt="記事一覧" src="https://user-images.githubusercontent.com/66010511/88481418-608b3000-cf96-11ea-9aac-f7338cc9e73e.png">
 ![コメント](https://user-images.githubusercontent.com/66010511/88481380-2457cf80-cf96-11ea-9dca-ddfd97d2a560.gif)
-## 実装予定の内容
-・
+
+## 工夫したポイント
+まず第一に既存のSNSで試合や練習に誘えば良いと言う感想をもたれないことを意識しました。そしてこのアプリオリジナルとなる対戦相手評価機能、レーダーチャートを用いたステータス表示機能を実装しました。
+次に試合の申込から対戦相手の評価までの処理をmatchingテーブルの試合予定日、status(申込中or承認済)、評価終了フラグ（user.idを入れることで評価終了）という複数のカラムを条件付けし、
+スケジュール一覧から管理できるようにしました。
+
+## 使用技術(開発環境)
+Ruby '2.6.5'
+Rails 6.0.3.2'
+mysql2 '0.4.4'
+AWS/S3
+
+## 課題や今後実装したい機能
+・ランキングページ
+・トップページへHOW TO USEを画像で追加
+・近くのコート検索機能
+・レーティング機能
 
 ## DB設計
 DB設計は以下の通りです。
@@ -33,14 +52,16 @@ DB設計は以下の通りです。
 |email|string|null: false|
 |password|string|null: false|
 ### Association
-- belongs_to :usersstatus
-- belongs_to :profile
-- has_many :stamps
-- has_many :users_groups
-- has_many :groups, through: :users_groups
-- has_many :traningartcles
-- has_many :comments
-- has_many :likes
+- has_many  :group_users
+- has_many  :groups, through: :group_users
+- has_many  :messages
+- has_many  :artcles
+- has_many  :comments
+- has_many  :favorites
+- has_one   :profile
+- has_many  :match
+- has_many  :userstatus
+
 
 ## profilesテーブル
 |Column|Type|Options|
