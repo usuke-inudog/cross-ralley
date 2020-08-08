@@ -12,6 +12,6 @@ class User < ApplicationRecord
   has_many  :comments
   has_many  :favorites
   has_one   :profile
-  has_many  :match
+  has_many  :matchings
   has_many  :userstatus
 end
