@@ -1,7 +1,7 @@
 .profile-wrapper
   .profile-body
     = link_to root_path do
-      = image_tag "/assets/logo.png",class:"profile-logo"
+      = image_tag "logo.png",class:"profile-logo"
     = form_with model: @profile, class:"profile-container", local: true do |f|
       .profile-container__title
         プロフィール新規登録
