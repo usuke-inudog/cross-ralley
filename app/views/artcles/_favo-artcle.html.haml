@@ -1,0 +1,13 @@
+.favo-rank
+  = i
+  位
+= link_to artcle_path(favo.id), class: "favo-artcle" do
+  .favo-artcle__title
+    = favo.title
+  .favo-artcle__favo
+    いいね：
+    = favo.favorites.count
+  .favo-artcle__nickname
+    = favo.user.nickname
+  .favo-artcle__created_at
+    = favo.created_at.strftime("%Y年%m月%d日 %H時%M分")

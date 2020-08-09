@@ -15,19 +15,22 @@
       width: 80px;
     }
   }
+$artcle_back_color: rgb(227, 227, 227);
 
 .artcles-index__wrapper{
   display: flex;
-  background: image-url("hyokkori.jpeg");
+  background: image-url("paper_00101.jpg");
   background-size: contain;
   flex-direction: column;
   align-items: center;
-  
   .posting-box{
     font-size: 20px;
     margin: 20px 0;
     padding: 10px 10px;
-    border: 2px solid lightblue;
+    background-color: #3CCACE;
+    text-decoration: none;
+    border-radius: 5px;
+    color: #fff;
   }
 
   .search-box{
@@ -41,20 +44,51 @@
       flex-direction: column;
       align-items: center;
       width: 75vw;
-      .new-artcle{
-        border: 1px black solid;
-        background-color:white;
-        margin: 10px 5px 10px;
-        &__img{
-          height: 300px;
-          width: auto;
-          max-width: 100%;
-        }
-      }
     }
     .popular-artcles-box{
       width: 250px;
+      height: 600px;
+      overflow: scroll;
       border: 1px solid black;
+      background-color: $artcle_back_color;
+      &__title{
+        font-size: 22px;
+        width: 100%;
+        border-bottom: 1px solid black;
+        text-align: center;
+      }
+      &__artcles{
+        display: flex;
+        flex-direction: column;
+        .favo-rank{
+          text-align: center;
+          font-size: 22px;
+          background-color: #fff;
+          border-top: 1px solid #333;
+          border-bottom: 1px dotted #333;
+        }
+        .favo-artcle{
+          background-color: #fff;
+          text-decoration: none;
+          color: #333;
+          padding: 0 5px;
+          &__title{
+            font-size: 18px;
+          }
+          &__nickname{
+            font-size: 12px;
+            text-align: end;
+          }
+          &__favo{
+            font-size: 14px;
+            text-align: end;
+          }
+          &__created_at{
+            font-size: 8px;
+            text-align: end;
+          }
+        }
+      }
     }
   }
   .paginations{
@@ -63,14 +97,49 @@
   }
 }
 
+.new-artcle{
+  padding-top: 5px;
+  border: 5px silver groove;
+  background-color: $artcle_back_color;
+  margin: 10px 5px 10px;
+  overflow: scroll;
+  &__title{
+    font-size: 22px;
+    text-decoration: none;
+    margin-bottom: 3px;
+  }
+  &__user{
+    font-size: 12px;
+  }
+  &__img{
+    height: 300px;
+    width: auto;
+    max-width: 100%;
+  }
+  &__favo{
+    text-align: end;
+  }
+  &__created_at{
+    text-align: end;
+    font-size: 12px;
+  }
+}
+
 .artcle-new__wrapper{
   height: calc(100vh - 65px);
   width: 100vw;
+  background: image-url("paper_00101.jpg");
+  background-size: contain;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   &--headline{
-    margin-top: 20px;
     text-align: center;
     font-size: 24px;
     color: black;
+    width: 200px;
+    border-bottom: 2px solid #fff;
   }
   .post-artcle-box{
     .artcle-form{
@@ -94,30 +163,38 @@
   }
 }
 
-.artcle-search__wrapper{
+.artcle-search-wrapper{
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 10px;
+  background: image-url("paper_00101.jpg");
+  background-size: contain;
+  &__title{
+    margin-top: 20px;
+    font-size: 24px;
+  }
   .search-box{
     @include search-box
   }
 }
 
 .artcle-show__wrapper{
-  height: calc(100vh - 65px);
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: image-url("paper_00101.jpg");
+  background-size: contain;
   .artcle-container{
-    background-color: rgb(230, 230, 230);
+    background-color:$artcle_back_color;
     width: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 30px;
     padding-bottom: 10px;
+    border: 5px silver groove;
     .content-post{
       width: 90%;
       padding-top: 15px;
@@ -135,7 +212,6 @@
         }
       }
       &__img-box{
-        border: 5px ridge white;
         &__image{
           width: 100%;
           height: auto;
@@ -145,14 +221,28 @@
         width: 100%;
       }
     }
-    .btn-container{
-      display: flex;
-      margin-left: auto;
-      &__edit-btn{
-
+    .artcle-btns{
+      width: 100%;
+      padding-right: 30px;
+      .favorite-btns{
+        display: flex;
+        justify-content: flex-end;
+        font-size: 18px;
+        i{
+          text-decoration: none;
+          color: lightpink;
+        }
       }
-      &__destroy-btn{
-        margin: 0px 30px;
+      .btn-container{
+        display: flex;
+        justify-content: flex-end;
+        margin-left: auto;
+        &__edit-btn{
+
+        }
+        &__destroy-btn{
+          margin: 0px 30px;
+        }
       }
     }
   }
