@@ -82,7 +82,7 @@ DB設計は以下の通りです。
 |footwork|integer|null: false|
 |stamina|integer|null: false|
 |service|integer|null: false|
-|return|integer|null: false|
+|receive|integer|null: false|
 |volley|integer|null: false|
 |forehand|integer|null: false|
 |backhand|integer|null: false|
@@ -97,7 +97,7 @@ DB設計は以下の通りです。
 |footwork|integer|null: false|
 |stamina|integer|null: false|
 |service|integer|null: false|
-|return|integer|null: false|
+|receive|integer|null: false|
 |volley|integer|null: false|
 |forehand|integer|null: false|
 |backhand|integer|null: false|

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_03_222002) do
+ActiveRecord::Schema.define(version: 2020_08_09_224346) do
 
   create_table "artcles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_222002) do
     t.integer "footwork", null: false
     t.integer "stamina", null: false
     t.integer "service", null: false
-    t.integer "return", null: false
+    t.integer "receive", null: false
     t.integer "volley", null: false
     t.integer "forehand", null: false
     t.integer "backhand", null: false
@@ -138,7 +138,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_222002) do
     t.integer "footwork", null: false
     t.integer "stamina", null: false
     t.integer "service", null: false
-    t.integer "return", null: false
+    t.integer "receive", null: false
     t.integer "volley", null: false
     t.integer "forehand", null: false
     t.integer "backhand", null: false

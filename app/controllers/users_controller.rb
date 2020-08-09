@@ -42,7 +42,7 @@ class UsersController < ApplicationController
       @footwork = @user_status.footwork
       @stamina = @user_status.stamina
       @service = @user_status.service
-      @return = @user_status.return
+      @receive = @user_status.receive
       @volley = @user_status.volley
       @forehand = @user_status.forehand
       @backhand = @user_status.backhand

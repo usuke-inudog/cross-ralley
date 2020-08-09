@@ -59,7 +59,7 @@ class MatchingsController < ApplicationController
       @footwork = @user_status.footwork
       @stamina = @user_status.stamina
       @service = @user_status.service
-      @return = @user_status.return
+      @receive = @user_status.receive
       @volley = @user_status.volley
       @forehand = @user_status.forehand
       @backhand = @user_status.backhand
@@ -71,7 +71,7 @@ class MatchingsController < ApplicationController
       @o_footwork = @o_user_status.footwork
       @o_stamina = @o_user_status.stamina
       @o_service = @o_user_status.service
-      @o_return = @o_user_status.return
+      @o_receive = @o_user_status.receive
       @o_volley = @o_user_status.volley
       @o_forehand = @o_user_status.forehand
       @o_backhand = @o_user_status.backhand

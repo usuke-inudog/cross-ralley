@@ -40,7 +40,7 @@ class EvaluationHistoriesController < ApplicationController
   end
 
   def evaluation_history_params
-    params.require(:evaluation_history).permit(:footwork, :stamina, :service, :return, :volley, :forehand, :backhand, :mental).merge(matching_id: @@matching_id,evaluated_user_id: @@evaluated_user_id, evaluate_user_id: current_user.id)
+    params.require(:evaluation_history).permit(:footwork, :stamina, :service, :receive, :volley, :forehand, :backhand, :mental).merge(matching_id: @@matching_id,evaluated_user_id: @@evaluated_user_id, evaluate_user_id: current_user.id)
   end
 
   def completed_evaluation
@@ -57,7 +57,7 @@ class EvaluationHistoriesController < ApplicationController
     @footwork = []
     @stamina = []
     @service = []
-    @return = []
+    @receive = []
     @volley = []
     @forehand = []
     @backhand = []
@@ -66,7 +66,7 @@ class EvaluationHistoriesController < ApplicationController
       @footwork << status.footwork
       @stamina << status.stamina
       @service << status.service
-      @return << status.return
+      @receive << status.receive
       @volley << status.volley
       @forehand << status.forehand
       @backhand << status.backhand
@@ -75,7 +75,7 @@ class EvaluationHistoriesController < ApplicationController
     @footwork = @footwork.sum.fdiv(@footwork.length)
     @stamina = @stamina.sum.fdiv(@stamina.length)
     @service = @service.sum.fdiv(@service.length)
-    @return = @return.sum.fdiv(@return.length)
+    @receive = @receive.sum.fdiv(@receive.length)
     @volley = @volley.sum.fdiv(@volley.length)
     @forehand = @forehand.sum.fdiv(@forehand.length)
     @backhand = @backhand.sum.fdiv(@backhand.length)
@@ -85,9 +85,9 @@ class EvaluationHistoriesController < ApplicationController
   def update_status
     @user_status = Userstatus.find_by(user_id: @@evaluated_user_id)
     if @user_status.present?
-      @user_status.update(rate: 1500, footwork: @footwork, stamina: @stamina, service: @service, return: @return, volley: @volley, forehand: @forehand, backhand: @backhand, mental: @mental)
+      @user_status.update(rate: 1500, footwork: @footwork, stamina: @stamina, service: @service, receive: @receive, volley: @volley, forehand: @forehand, backhand: @backhand, mental: @mental)
     else
-      Userstatus.create(rate: 1500, footwork: @footwork, stamina: @stamina, service: @service, return: @return, volley: @volley, forehand: @forehand, backhand: @backhand, mental: @mental, user_id: @@evaluated_user_id)
+      Userstatus.create(rate: 1500, footwork: @footwork, stamina: @stamina, service: @service, receive: @receive, volley: @volley, forehand: @forehand, backhand: @backhand, mental: @mental, user_id: @@evaluated_user_id)
     end
   end
 end
