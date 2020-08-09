@@ -48,7 +48,7 @@ DB設計は以下の通りです。
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_name|string|null: false|
+|nickname|string|null: false, uniqueness: true|
 |email|string|null: false|
 |password|string|null: false|
 ### Association
@@ -59,18 +59,19 @@ DB設計は以下の通りです。
 - has_many  :comments
 - has_many  :favorites
 - has_one   :profile
-- has_many  :match
+- has_many  :matchings
 - has_many  :userstatus
-
+- has_many  :evaluation_histories
 
 ## profilesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text||
+|image|text|
 |age|string|null: false|
 |gender|string|null: false|
 |introduction|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|address|string|null: false|
+|user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
@@ -78,48 +79,81 @@ DB設計は以下の通りです。
 |Column|Type|Options|
 |------|----|-------|
 |rate|integer|null: false|
-|footwork|integer||
-|stamina|integer||
-|service|integer||
-|return|integer||
-|volley|integer||
-|forehand|integer||
-|backhand|integer||
-|mental|integer||
-|user_id|integer|null: false, foreign_key: true|
+|footwork|integer|null: false|
+|stamina|integer|null: false|
+|service|integer|null: false|
+|return|integer|null: false|
+|volley|integer|null: false|
+|forehand|integer|null: false|
+|backhand|integer|null: false|
+|mental|integer|null: false|
+|user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
+
+## evaluation_historiesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|footwork|integer|null: false|
+|stamina|integer|null: false|
+|service|integer|null: false|
+|return|integer|null: false|
+|volley|integer|null: false|
+|forehand|integer|null: false|
+|backhand|integer|null: false|
+|mental|integer|null: false|
+|matching_id|references|null: false, foreign_key: true|
+|evaluated_user_id|references|null: false, foreign_key: true|
+|evaluate_user_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :matching
+
+## matchingsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|host_user_id|references|null: false, foreign_key: true|
+|guest_user_id|references|null: false, foreign_key: true|
+|match_type|string|null: false|
+|scheduled_date|date|null: false|
+|sheduled_time|time|null: false|
+|place|string|null: false|
+|response_deadline|date|null: false|
+|status|string|null: fase|
+|completed_host_user_id|references|null: false, foreign_key: true|
+|compeleted_guest_user_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- has_many :evaluation_histroies
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false|
-|group_type|string|null: false|
+|group_name|string|null: false, unique: true|
 ### Association
-- has_many :massages
-- has_many :users_groups
-- has_many :users, through: :users_groups
+- has_many  :group_users
+- has_many  :users, through: :group_users
+- has_many  :messages
+
+## users_groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null:false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :group
 
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text||
 |image|text||
-|video|text||
+|text|text||
+|group_id|references|foreign_key: true, null: false|
+|user_id|references|foreign_key: true, null: false|
 ### Association
 - belongs_to :user
 - belongs_to :group
-- has_many :messages_stamps
-- has_many :stamps, through: :messages_stamps
-
-## stampsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|stamp|text||
-### Association
-- belongs_to :user
-- has_many :messages_stamps
-- has_many :message, through: :messages_stamps
 
 ## artcles
 |Column|Type|Options|
@@ -128,43 +162,27 @@ DB設計は以下の通りです。
 |text|text||
 |image|text||
 |video|text||
+|user_id|references|foreign_key: true|
 ### Association
-- belongs_to :user
-- belongs_to :like
-- has_many :comments
-
+- belongs_to  :user
+- has_many    :comments
+- has_many    :favorites
 
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|comment|text||
+|user_id|references|foreign_key: true|
+|artcle_id|references|foreign_key: true|
+|comment|text|
 ### Association
-- belongs_to :user
-- belongs_to :comment
-- belongs_to :like
+- belongs_to  :artcle
+- belongs_to  :user
 
-## likesテーブル
+## favoritesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|user_id|references|foreign_key: true, null: false|
+|artcle_id|references|foreign_key: true, null: false|
 ### Association
 - belongs_to :user
-- belongs_to :traningartcle
-- belongs_to :comment
-
-## users_groupsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null:false, foreign_key: true|
-### Association
-- belongs_to :user
-- belongs_to :group
-
-## messages_stampsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|message_id|integer|null: false, foreign_key: true|
-|stamp_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :message
-- belongs_to :stamp
+- belongs_to :artcle
