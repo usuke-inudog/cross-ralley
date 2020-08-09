@@ -1,8 +1,9 @@
 class ArtclesController < ApplicationController
   before_action :set_artcle, only: [:edit, :show]
+  before_action :artcle_all, only: [:index]
+  before_action :artcles_favo, only: [:index]
 
   def index
-    @artcles = Artcle.all.order("created_at DESC").page(params[:page]).per(4)
   end
 
   def new
@@ -20,7 +21,7 @@ class ArtclesController < ApplicationController
   end
 
   def search
-    @artcles = Artcle.search(params[:keyword])
+    @artcles = Artcle.search(params[:keyword]).order("created_at DESC").page(params[:page]).per(4)
   end
 
   def edit
@@ -45,5 +46,13 @@ class ArtclesController < ApplicationController
 
   def set_artcle
     @artcle = Artcle.find(params[:id])
+  end
+
+  def artcle_all
+    @artcles = Artcle.all.order("created_at DESC").page(params[:page]).per(4)
+  end
+
+  def artcles_favo
+    @favo_artcle = Artcle.find(Favorite.group(:artcle_id).order('count(artcle_id) desc').limit(10).pluck(:artcle_id))
   end
 end

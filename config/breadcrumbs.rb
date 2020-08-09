@@ -16,6 +16,11 @@ crumb :artcle do |artcle|
   parent :artcles
 end
 
+crumb :artcle_search do |artcle|
+  link "記事検索結果", search_artcles_path
+  parent :artcles
+end
+
 crumb :schedule do
   link "対戦予定一覧", user_schedules_path(current_user.id)
   parent :mypage

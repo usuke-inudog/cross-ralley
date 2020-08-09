@@ -19,15 +19,16 @@
           = image_tag "/assets/publicdomainq-0015394kfs.jpg", class:"content-post__img-box__image"
       .content-post__text-box
         = @artcle.text
-    -if user_signed_in? && current_user.id != @artcle.user.id
+    .artcle-btns
       .favorite-btns#likes
-        = render partial: 'favorites/favorite', locals: { artcle: @artcle}
-    .btn-container
-      - if user_signed_in? && current_user.id == @artcle.user.id
-        = link_to edit_artcle_path(@artcle.id),class:"btn-container__edit-btn" do
-          編集する
-        = link_to artcle_path(@artcle.id), class:"btn-container__destroy-btn", method: :delete do
-          削除する
+        -if user_signed_in? && current_user.id != @artcle.user.id
+          = render partial: 'favorites/favorite', locals: { artcle: @artcle}
+      .btn-container
+        - if user_signed_in? && current_user.id == @artcle.user.id
+          = link_to edit_artcle_path(@artcle.id),class:"btn-container__edit-btn" do
+            編集する
+          = link_to artcle_path(@artcle.id), class:"btn-container__destroy-btn", method: :delete do
+            削除する
   .comment-container
     - if user_signed_in?
       .comments

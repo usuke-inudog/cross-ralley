@@ -3,15 +3,18 @@
 = render "layouts/breadcrumbs"
 
 .artcles-index__wrapper
-  .posting-box
-    = link_to new_artcle_path do
-      投稿する
+  = link_to new_artcle_path, class: "posting-box" do
+    記事を投稿する
   = render "search-box"
   .container.artcle-contents
     .new-artcles-box
       - @artcles.each do |artcle|
         = render "artcle", { artcle: artcle}
     .popular-artcles-box
-      %h3 人気記事
+      .popular-artcles-box__title
+        人気記事
+      .popular-artcles-box__artcles
+        - @favo_artcle.each.with_index(1) do |favo, i|
+          = render "favo-artcle", { favo: favo, i: i}
   .pagenations
     = paginate @artcles

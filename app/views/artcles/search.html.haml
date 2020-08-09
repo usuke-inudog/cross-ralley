@@ -1,10 +1,12 @@
 = render "layouts/header"
-- breadcrumb :artcles
+- breadcrumb :artcle_search
 = render "layouts/breadcrumbs"
 
-.artcle-search__wrapper
+.artcle-search-wrapper
+  .artcle-search-wrapper__title
+    検索結果
   = render "search-box"
-  .container.artcle-contents
-    %h2 検索結果
-    - @artcles.each do |artcle|
-      = render "artcle", { artcle: artcle}
+  - @artcles.each do |artcle|
+    = render "artcle", { artcle: artcle}
+  .pagenations
+    = paginate @artcles

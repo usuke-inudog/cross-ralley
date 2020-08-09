@@ -1,7 +1,10 @@
 - if current_user.favorites.find_by(artcle_id: artcle.id)
-  = link_to "いいね取り消し", artcle_favorites_path(artcle.id), method: :delete, remote: true
+  = link_to artcle_favorites_path(artcle.id), method: :delete, remote: true do
+    %i.fas.fa-heart
+    %a :
 - else
-  = link_to "いいね", artcle_favorites_path(artcle.id), method: :post, remote: true
-☆：
+  = link_to artcle_favorites_path(artcle.id), method: :post, remote: true do
+    %i.far.fa-heart
+    %a :
 = artcle.favorites.count
 
