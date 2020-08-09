@@ -1,0 +1,127 @@
+@mixin ranking-title{
+  color: #fff;
+  font-size: 32px;
+}
+
+@mixin box-contents{
+  margin: 15px 20px;
+  width: 60%;
+  .user-info{
+    background-color: #fff;
+    opacity: 0.55;
+    height: 75px;
+    margin: 20px 0;
+    display: flex;
+    &__rank{
+      width: 75px;
+      line-height: 75px;
+      font-size: 28px;
+      margin-left: 20px;
+    }
+    &__container{
+      padding: 10px 0;
+      font-size: 18px;
+      text-align: none;
+      color: #333;
+      &--name{
+        overflow: hidden;
+        font-size: 22px;
+      }
+      &--status{
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.ranking-body{
+  width: 100vw;
+  min-height: 100vh;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background:image-url("texture_00010.jpg");
+  background-size: contain;
+  &__title{
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+  }
+  .footwork-box{
+    &__title{
+      @include ranking-title
+    }
+    &__contents{
+      @include box-contents
+    }
+  }
+  .stamina-box{
+    &__title{
+      @include ranking-title
+    }
+    &__contents{
+      @include box-contents
+    }
+  }
+  .service-box{
+    &__title{
+      @include ranking-title
+    }
+    &__contents{
+      @include box-contents
+    }
+  }
+  .return-box{
+    &__title{
+      @include ranking-title
+    }
+    &__contents{
+      @include box-contents
+    }
+  }
+  .volley-box{
+    &__title{
+      @include ranking-title
+    }
+    &__contents{
+      @include box-contents
+    }
+  }
+  .forehand-box{
+    &__title{
+      @include ranking-title
+    }
+    &__contents{
+      @include box-contents
+    }
+  }
+  .backhand-box{
+    &__title{
+      @include ranking-title
+    }
+    &__contents{
+      @include box-contents
+    }
+  }
+  .mental-box{
+    &__title{
+      @include ranking-title
+    }
+    &__contents{
+      @include box-contents
+    }
+  }
+}
+
+.ranking-box{
+  width: 70%;
+  margin: 30px 0;
+  height: 600px;
+  padding: 30px 40px;
+  border: 10px rgb(77, 51, 51) groove;
+  background:image-url("2630484_m.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

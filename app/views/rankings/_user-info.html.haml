@@ -1,0 +1,25 @@
+.user-info
+  .user-info__rank
+    = i
+    位
+  = link_to new_matching_path(status.user_id) ,class:"user-info__container" do
+    .user-info__container--name
+      = User.find_by(id: status.user_id).nickname
+    .user-info__container--status
+      footwork:
+      = status.footwork
+      stamina:
+      = status.stamina
+      service:
+      = status.service
+      return:
+      = status.receive
+      %br
+      volley:
+      = status.volley
+      forehand:
+      = status.forehand
+      backhand:
+      = status.backhand
+      mental:
+      = status.mental

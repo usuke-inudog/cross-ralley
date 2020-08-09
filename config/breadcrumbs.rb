@@ -10,6 +10,10 @@ crumb :artcles do
   link "記事一覧", artcles_path
 end
 
+crumb :ranking do
+  link "ランキング", rankings_path
+end
+
 crumb :artcle do |artcle|
   artcle = Artcle.find(params[:id])
   link "#{artcle.title}", artcle_path

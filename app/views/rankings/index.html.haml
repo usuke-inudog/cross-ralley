@@ -1,5 +1,56 @@
 = render "layouts/header"
+- breadcrumb :ranking
+= render "layouts/breadcrumbs"
 
 .ranking-body
   .ranking-body__title
-    %h1 ランキング
+    ランキング
+  .footwork-box.ranking-box
+    .footwork-box__title
+      フットワークランキング
+    .footwork-box__contents
+      - @footwork.each.with_index(1) do |status , i|
+        = render "user-info", {status: status, i: i}
+  .stamina-box.ranking-box
+    .stamina-box__title
+      スタミナランキング
+    .stamina-box__contents
+      - @stamina.each.with_index(1) do |status, i|
+        = render "user-info", {status: status, i: i}
+  .service-box.ranking-box
+    .service-box__title
+      サーブランキング
+    .service-box__contents
+      - @serivce.each.with_index(1) do |status, i|
+        = render "user-info", {status: status, i: i}
+  .return-box.ranking-box
+    .return-box__title
+      リターンランキング
+    .return-box__contents
+      - @receive.each.with_index(1) do |status, i|
+        = render "user-info", {status: status, i: i}
+  .volley-box.ranking-box
+    .volley-box__title
+      ボレーランキング
+    .volley-box__contents
+      - @volley.each.with_index(1) do |status, i|
+        = render "user-info", {status: status, i: i}
+  .forehand-box.ranking-box
+    .forehand-box__title
+      フォアハンドランキング
+    .forehand-box__contents
+      - @forehand.each.with_index(1) do |status, i|
+        = render "user-info", {status: status, i: i}
+  .backhand-box.ranking-box
+    .backhand-box__title
+      バックハンドランキング
+    .backhand-box__contents
+      - @backhand.each.with_index(1) do |status, i|
+        = render "user-info", {status: status, i: i}
+  .mental-box.ranking-box
+    .mental-box__title
+      メンタルランキング
+    .mental-box__contents
+      - @mental.each.with_index(1) do |status, i|
+        = render "user-info", {status: status, i: i}
+  .ranking-body__btns
