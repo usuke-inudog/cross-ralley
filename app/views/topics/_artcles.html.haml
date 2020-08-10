@@ -1,6 +1,6 @@
 - if artcle.image?
   = link_to artcle_path(artcle.id) do
-    .col-md-3.article-box{style: "background-image: (#{artcle.image});"}
+    .col-md-3.article-box{style: "background-image: url(#{artcle.image});"}
       %h2.article-box__title
         .article-box__title__str
           = artcle.title
