@@ -29,6 +29,10 @@ password:123456<br>
 ![ランキング](https://user-images.githubusercontent.com/66010511/89746254-b366fa80-daf3-11ea-8790-406ad46aebb4.gif)
 ### 記事画面
 ![記事](https://user-images.githubusercontent.com/66010511/89746336-0b056600-daf4-11ea-92f3-d24ae956ccf7.gif)
+### マイページ
+![マイページ](https://user-images.githubusercontent.com/66010511/89746445-9d0d6e80-daf4-11ea-9b04-af1d30b05c6c.gif)
+### スケジュール管理画面
+![スケジュール](https://user-images.githubusercontent.com/66010511/89746503-ea89db80-daf4-11ea-9342-cad8d8a630db.gif)
 
 ## 工夫したポイント
 まず第一に既存のSNSで試合や練習に誘えば良いと言う感想をもたれないことを意識しました。そしてこのアプリオリジナルとなる対戦相手評価機能、レーダーチャートを用いたステータス表示機能を実装しました。
