@@ -21,13 +21,13 @@ password:123456<br>
 また、レーダーチャートを用いた能力評価システムを実装することで既存のSNSとの差別化を計りました。
 
 ## DEMO
-# トップページ
+### トップページ
 ![トップページ](https://user-images.githubusercontent.com/66010511/89746207-7f8bd500-daf3-11ea-89c6-8186c873d38d.jpg)
-# 試合に誘う
+### 試合に誘う
 ![試合に誘う](https://user-images.githubusercontent.com/66010511/89746236-9df1d080-daf3-11ea-8217-a4349dfcbae4.gif)
-# ランキング
+### ランキング
 ![ランキング](https://user-images.githubusercontent.com/66010511/89746254-b366fa80-daf3-11ea-8790-406ad46aebb4.gif)
-# 記事画面
+### 記事画面
 ![記事](https://user-images.githubusercontent.com/66010511/89746336-0b056600-daf4-11ea-92f3-d24ae956ccf7.gif)
 
 ## 工夫したポイント
