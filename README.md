@@ -21,10 +21,14 @@ password:123456<br>
 また、レーダーチャートを用いた能力評価システムを実装することで既存のSNSとの差別化を計りました。
 
 ## DEMO
-![トップページ](https://user-images.githubusercontent.com/66010511/88481363-04c0a700-cf96-11ea-8f1d-a461c69f6c91.jpg)
-![チャット画面](https://user-images.githubusercontent.com/66010511/88481371-1609b380-cf96-11ea-890c-73a724b61ea9.gif)
-<img width="1280" alt="記事一覧" src="https://user-images.githubusercontent.com/66010511/88481418-608b3000-cf96-11ea-9aac-f7338cc9e73e.png">
-![コメント](https://user-images.githubusercontent.com/66010511/88481380-2457cf80-cf96-11ea-9dca-ddfd97d2a560.gif)
+# トップページ
+![トップページ](https://user-images.githubusercontent.com/66010511/89746207-7f8bd500-daf3-11ea-89c6-8186c873d38d.jpg)
+# 試合に誘う
+![試合に誘う](https://user-images.githubusercontent.com/66010511/89746236-9df1d080-daf3-11ea-8217-a4349dfcbae4.gif)
+# ランキング
+![ランキング](https://user-images.githubusercontent.com/66010511/89746254-b366fa80-daf3-11ea-8790-406ad46aebb4.gif)
+# 記事画面
+![記事](https://user-images.githubusercontent.com/66010511/89746336-0b056600-daf4-11ea-92f3-d24ae956ccf7.gif)
 
 ## 工夫したポイント
 まず第一に既存のSNSで試合や練習に誘えば良いと言う感想をもたれないことを意識しました。そしてこのアプリオリジナルとなる対戦相手評価機能、レーダーチャートを用いたステータス表示機能を実装しました。
