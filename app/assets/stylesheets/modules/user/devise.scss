@@ -1,0 +1,35 @@
+.user-sign-in__rapper{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &--title{
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  .sign-in-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    background: image-url("clipboard1_blank");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 375px;
+    padding: 50px 25px 0;
+    .field{
+      width: 100%;
+      .input-field{
+        width: 250px;
+        height: 30px;
+        margin: 5px 0;
+      }
+    }
+    .actions{
+      margin: 5px;
+    }
+  }
+}
