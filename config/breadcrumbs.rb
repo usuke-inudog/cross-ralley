@@ -29,3 +29,7 @@ crumb :schedule do
   link "対戦予定一覧", user_schedules_path(current_user.id)
   parent :mypage
 end
+
+crumb :map do
+  link "ショップ検索", maps_path
+end

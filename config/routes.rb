@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   resources :userstatuses, only: [:new, :create]
   resources :evaluation_histories, only: [:new, :create]
   resources :rankings, only: [:index]
+  resources :maps, only: [:index]
 end
