@@ -69,6 +69,8 @@ gem "gretel"
 gem 'chart-js-rails'
 gem 'active_hash'
 gem 'fog-aws'
+gem 'dotenv-rails'
+
 
 group :production do
   gem 'unicorn'
