@@ -1,0 +1,109 @@
+= render "layouts/header"
+- breadcrumb :map
+= render "layouts/breadcrumbs"
+.maps-body
+  .place-select
+    %select.place-select__box#place-box
+      %option 狛江インドアテニススクール
+      %option 水郷テニス練習所
+      %option 八王子ファミリーテニスカレッジ
+      %option 国立グリーンヒルテニス
+      %option ひまわりテニスクラブ
+    %input{type: "button", class: "map-search--btn", value:"検索する", onClick: "initialize();"}
+  .map-canvas#map
+
+
+
+
+%script{src: "http://maps.google.com/maps/api/js?key=AIzaSyBTO3RncFlDB_E2NOQ4Af8jUSpgHRn5DVk&language=ja&libraries=places"}
+:css
+  html { height: 100% }
+  body { height: 100% }
+
+
+:javascript
+  var map;
+  var service;
+  var infowindow;
+  initialize()
+  function initialize() {
+    // 検索用のフォームからテニスコートの名称を取得する
+    var tennisCourt = document.getElementById('place-box').value;
+    // 取得したテニスコートの座標を取得する
+    var center = getPlace(tennisCourt)
+    // 取得した座標を元にgooglemapを展開する
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: center,
+        zoom: 14
+      });
+    // 中央にマーカーを作成
+    centerMarker = new google.maps.Marker({
+      position: center,
+      map: map,
+    });
+    // マーカーをクリックした際にテニスコートの名称を表示させる
+    infoWindow = new google.maps.InfoWindow({
+        content: '<div class="info-window">' + tennisCourt + '</div>'
+    });
+    centerMarker.addListener('click', function(){
+      infoWindow.open(map, centerMarker);
+    });
+    
+    //指定位置の半径1500mを検索
+    var request = {
+      location: center,
+      radius: '2000',
+      keyword: "テニスショップ",
+    };
+    service = new google.maps.places.PlacesService(map);
+    service.nearbySearch(request, callback);
+  }
+
+  function getPlace(tennisCourt){
+    if (tennisCourt == '狛江インドアテニススクール'){
+      var center = {
+        lat: 35.637861,
+        lng: 139.573852 
+      };
+    } else if (tennisCourt == '水郷テニス練習所'){
+      var center = {
+        lat: 35.782124,
+        lng: 139.866966
+      };
+    } else if (tennisCourt == '八王子ファミリーテニスカレッジ'){
+      var center = {
+        lat: 35.645098,
+        lng: 139.348998
+      };
+    } else if (tennisCourt == '国立グリーンヒルテニス'){
+      var center = {
+        lat: 35.706783,
+        lng: 139.448428
+      };
+    } else if (tennisCourt == 'ひまわりテニスクラブ'){
+      var center = {
+        lat: 35.744617,
+        lng: 139.865940
+      };
+    }
+    return center
+  }
+
+  function createMarker(latlng, icn){
+    // マーカー作成
+    var marker = new google.maps.Marker({
+      position: latlng,
+      map: map,
+    });
+  }
+
+  function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        var place = results[i];
+        latlng = place.geometry.location;
+        icn = place.icon;
+        createMarker(latlng, icn);
+      }
+    }
+  }
