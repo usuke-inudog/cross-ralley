@@ -25,6 +25,8 @@ password:123456<br>
 ![トップページ](https://user-images.githubusercontent.com/66010511/89746207-7f8bd500-daf3-11ea-89c6-8186c873d38d.jpg)
 ### 試合に誘う
 ![試合に誘う](https://user-images.githubusercontent.com/66010511/89746236-9df1d080-daf3-11ea-8217-a4349dfcbae4.gif)
+### 店舗検索
+![店舗検索](https://user-images.githubusercontent.com/66010511/94381044-dc5e5000-0172-11eb-968e-3d385e8554fc.gif)
 ### ランキング
 ![ランキング](https://user-images.githubusercontent.com/66010511/89746254-b366fa80-daf3-11ea-8790-406ad46aebb4.gif)
 ### 記事画面
@@ -58,9 +60,9 @@ AWS/S3<br>
 - 対戦申込機能
 - ステータス評価機能
 - ランキング機能
+- GoogleMapsAPIを使用した店舗検索機能
 
 ## 今後実装したい機能
-・近くのコート検索機能<br>
 ・レーティング機能<br>
 ・レスポンシブ対応
 
