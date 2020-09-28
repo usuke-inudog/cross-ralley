@@ -12,8 +12,8 @@ Cross×Rally
 http://175.41.244.232
 
 ## テスト用アカウント
-mailaddress:sample999@sample.com<br>
-password:123456<br>
+mailaddress: sample999@sample.com<br>
+password:    123456<br>
 
 ## 制作背景
 私自身がテニスをしていた時、大会に出ない限り、一緒に試合や練習をするプレイヤーが固定化していると感じました。
