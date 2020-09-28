@@ -9,12 +9,17 @@
       %option 八王子ファミリーテニスカレッジ
       %option 国立グリーンヒルテニス
       %option ひまわりテニスクラブ
+      %option テニススポル品川大井町
+      %option 昭和の森テニスセンター
+      %option 品川プリンスホテル高輪テニスセンター
+      %option 明治神宮外苑テニスクラブ
+      %option 高島平インドアテニススクール
     %input{type: "button", class: "map-search--btn", value:"検索する", onClick: "initialize();"}
   .map-canvas#map
 
 
 
-%script{:src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}", :type => "text/javascript"}
+%script{:src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}&libraries=places", :type => "text/javascript"}
 :css
   html { height: 100% }
   body { height: 100% }
@@ -40,7 +45,7 @@
       position: center,
       map: map,
     });
-    // マーカーをクリックした際にテニスコートの名称を表示させる
+    // 中央マーカーをクリックした際にテニスコートの名称を表示させる
     infoWindow = new google.maps.InfoWindow({
         content: '<div class="info-window">' + tennisCourt + '</div>'
     });
@@ -56,6 +61,32 @@
     };
     service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, callback);
+  }
+
+  function createMarker(latlng, icn, place){
+    // 店舗検索結果のマーカー作成
+    var marker = new google.maps.Marker({
+      position: latlng,
+      map: map,
+    });
+
+    // 店舗検索結果マーカーに店舗の名称を表示させる
+    storeWindow = new google.maps.InfoWindow({
+        content: '<div class="store-window">' + place.name + '</div>',
+        disableAutoPan: true
+    });
+    storeWindow.open(map, marker)
+  }
+
+  function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        var place = results[i];
+        latlng = place.geometry.location;
+        icn = place.icon;
+        createMarker(latlng, icn, place);
+      }
+    }
   }
 
   function getPlace(tennisCourt){
@@ -84,25 +115,31 @@
         lat: 35.744617,
         lng: 139.865940
       };
+    } else if (tennisCourt == 'テニススポル品川大井町'){
+      var center = {
+        lat: 35.608563,
+        lng: 139.732046
+      };
+    } else if (tennisCourt == '昭和の森テニスセンター'){
+      var center = {
+        lat: 35.716852,
+        lng: 139.364146
+      };
+    } else if (tennisCourt == '品川プリンスホテル高輪テニスセンター'){
+      var center = {
+        lat: 35.628093,
+        lng: 139.733827
+      };
+    } else if (tennisCourt == '明治神宮外苑テニスクラブ'){
+      var center = {
+        lat: 35.673477,
+        lng: 139.719608
+      };
+    } else if (tennisCourt == '高島平インドアテニススクール'){
+      var center = {
+        lat: 35.796364,
+        lng: 139.667181
+      };
     }
     return center
-  }
-
-  function createMarker(latlng, icn){
-    // マーカー作成
-    var marker = new google.maps.Marker({
-      position: latlng,
-      map: map,
-    });
-  }
-
-  function callback(results, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
-        var place = results[i];
-        latlng = place.geometry.location;
-        icn = place.icon;
-        createMarker(latlng, icn);
-      }
-    }
   }
